@@ -1,7 +1,15 @@
 ---
 import Layout from "../layouts/layout.astro";
+
+const url = import.meta.env.WEBSITE_URL;
 ---
 
-<Layout>
-  <h1>Astro</h1>
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street"
+  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+  websiteUrl={url}
+  altImage="Bean Street Logo"
+>
+  <h1>Bean Street</h1>
 </Layout>

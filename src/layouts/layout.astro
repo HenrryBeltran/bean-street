@@ -1,13 +1,21 @@
 ---
+import SEO from "../components/SEO.astro";
+
+interface Props {
+  generator: string;
+  title: string;
+  description: string;
+  websiteUrl: string;
+  altImage: string;
+}
+
+const { generator, title, description, websiteUrl, altImage } =
+  Astro.props as Props;
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <SEO {generator} {title} {description} {websiteUrl} {altImage} />
   </head>
   <body>
     <slot />
