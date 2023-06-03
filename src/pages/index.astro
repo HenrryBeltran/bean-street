@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const url = import.meta.env.WEBSITE_URL;
 ---
 
-<Layout
+<MainLayout
   generator="Bean Street v1.0.0"
   title="Bean Street"
   description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
@@ -12,7 +12,5 @@ const url = import.meta.env.WEBSITE_URL;
   altImage="Bean Street Logo"
 >
   <h1 class="font-serif text-4xl font-black tracking-tighter">Bean Street</h1>
-  <p class="leading-[1.75] text-neutral-800">
-    Some dummy text to test the poppins font
-  </p>
-</Layout>
+  <p class="leading-[1.75] text-neutral-800">Some dummy text to test the poppins font</p>
+</MainLayout>
