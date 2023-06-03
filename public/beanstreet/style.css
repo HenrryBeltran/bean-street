@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Boska Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 900;
+  src: url("/fonts/boska-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/fonts/poppins-variable.woff2") format("woff2");
+}
+
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
