@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { HTMLAttributes, createRef, memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 const links = [
   { name: "Shop", route: "/shop" },
@@ -10,7 +10,6 @@ const links = [
 
 const NavLinks = () => {
   const [pathname, setPathname] = useState("");
-  console.log(pathname);
 
   useEffect(() => {
     setPathname(window.location.pathname);
