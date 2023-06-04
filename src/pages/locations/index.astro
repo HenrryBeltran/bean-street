@@ -1,6 +1,6 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import Navbar from "../components/Navbar/Navbar";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Navbar from "../../components/Navbar/Navbar";
 
 const url = import.meta.env.WEBSITE_URL;
 ---
@@ -13,6 +13,7 @@ const url = import.meta.env.WEBSITE_URL;
   altImage="Bean Street Logo"
 >
   <Navbar client:load />
+  <h1 class="mt-6 px-10">Locations</h1>
   <p class="mt-6 px-10">
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. A id et quae blanditiis iure
     qui, error rerum temporibus officia est, tempora, illum quis quod. Hic minima,
