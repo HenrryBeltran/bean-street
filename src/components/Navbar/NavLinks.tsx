@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { links } from "./links";
 
 const NavLinks = () => {
@@ -33,4 +33,4 @@ const NavLinks = () => {
   );
 };
 
-export default memo(NavLinks);
+export default NavLinks;

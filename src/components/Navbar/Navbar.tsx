@@ -7,11 +7,11 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full bg-beige-100 transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrollPosition > 0 ? "shadow-md" : "shadow-none"
       }`}
     >
-      <nav className="mx-auto flex h-12 max-w-[1728px] items-center lg:h-16">
+      <nav className="mx-auto flex h-12 max-w-[1728px] items-center bg-beige-100 lg:h-16">
         <div className="global-select-none basis-1/3 lg:hidden">
           <NavMenuButton />
         </div>

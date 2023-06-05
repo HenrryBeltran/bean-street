@@ -29,7 +29,7 @@ const NavMenuButton = () => {
             bottomBreadOpen.current?.beginElement();
             const element = dropMenuRef.current;
             if (element) {
-              element.style.display = "block";
+              // element.style.display = "block";
             }
           } else {
             setIsOpen(false);
@@ -37,7 +37,7 @@ const NavMenuButton = () => {
             bottomBreadClose.current?.beginElement();
             const element = dropMenuRef.current;
             if (element) {
-              element.style.display = "none";
+              // element.style.display = "none";
             }
           }
         }}
@@ -50,7 +50,7 @@ const NavMenuButton = () => {
         />
       </button>
 
-      <DropMenu ref={dropMenuRef} />
+      <DropMenu ref={dropMenuRef} isOpen={isOpen} />
     </div>
   );
 };
