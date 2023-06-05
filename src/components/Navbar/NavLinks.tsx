@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { memo, useEffect, useState } from "react";
-
-const links = [
-  { name: "Shop", route: "/shop" },
-  { name: "Locations", route: "/locations" },
-  { name: "About us", route: "/about-us" },
-  { name: "Menu", route: "/menu" },
-];
+import { links } from "./links";
 
 const NavLinks = () => {
   const [pathname, setPathname] = useState("");
