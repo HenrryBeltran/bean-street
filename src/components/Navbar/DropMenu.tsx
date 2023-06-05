@@ -75,7 +75,9 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                 </ul>
               </div>
               <div className="mx-6 mt-6 flex flex-col gap-3">
-                <h3 className="text-lg font-semibold text-brown-700">Our Socials</h3>
+                <h3 className="select-text text-lg font-semibold text-brown-700">
+                  Our Socials
+                </h3>
                 <ul className="flex gap-4">
                   <li className="flex h-8 w-8 items-center justify-center">
                     <a href="https://www.instagram.com" target="_blank" className="group">
