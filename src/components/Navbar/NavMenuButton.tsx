@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavMenuIcon from "./NavMenuIcon";
 import DropMenu from "./DropMenu";
 
@@ -9,6 +9,14 @@ const NavMenuButton = () => {
   const bottomBreadOpen = useRef<SVGAnimateElement>(null);
   const bottomBreadClose = useRef<SVGAnimateElement>(null);
   const dropMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "visible";
+    }
+  }, [isOpen]);
 
   return (
     <div className="relative">
