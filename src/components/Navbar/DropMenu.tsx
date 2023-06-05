@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { links } from "./links";
 import { AnimatePresence, motion } from "framer-motion";
+import SecondaryButton from "../SecondaryButton";
 
 interface Props {
   isOpen: boolean;
@@ -34,13 +35,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                 >
                   Sign in
                 </a>
-                <a
-                  href="/"
-                  className="item-center group relative flex overflow-hidden border-2 border-brown-700 px-3 py-1 font-semibold transition-colors hover:text-beige-100"
-                >
-                  Sign up
-                  <span className="absolute -bottom-[150%] left-0 -z-10 h-full w-full bg-brown-700 transition-all duration-300 group-hover:bottom-0"></span>
-                </a>
+                <SecondaryButton name="Sign up" buttonClass="font-semibold" />
               </div>
               <div className="border-b border-b-brown-300">
                 <ul className="mx-6 my-8 flex flex-col gap-y-6 text-brown-700">

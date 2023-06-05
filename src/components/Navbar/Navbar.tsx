@@ -1,4 +1,6 @@
 import { useScrollPosition } from "../../hooks/useScrollPosition";
+import PrimaryButton from "../PrimaryButton";
+import SecondaryButton from "../SecondaryButton";
 import NavLinks from "./NavLinks";
 import NavMenuButton from "./NavMenuButton";
 
@@ -31,18 +33,8 @@ function Navbar() {
         <div className="global-select-none basis-1/3">
           <div className="flex items-center justify-between text-brown-700 before:w-1/3 before:content-['']">
             <div className="hidden lg:flex lg:gap-x-5">
-              <a
-                href="/"
-                className="item-center flex whitespace-nowrap border-2 border-brown-700 px-3 py-1 font-medium text-brown-700"
-              >
-                Sign in
-              </a>
-              <a
-                href="/"
-                className="flex items-center whitespace-nowrap bg-brown-700 px-3 py-1 font-medium text-beige-100"
-              >
-                Sign up
-              </a>
+              <SecondaryButton name="Sign in" />
+              <PrimaryButton name="Sign up" />
             </div>
 
             <a

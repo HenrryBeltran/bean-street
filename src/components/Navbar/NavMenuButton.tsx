@@ -22,23 +22,16 @@ const NavMenuButton = () => {
     <div className="relative">
       <button
         className="group ml-2.5 flex aspect-square w-12 items-center justify-center lg:hidden"
+        aria-label={!isOpen ? "Open Drop Menu" : "Close Drop Menu"}
         onClick={() => {
           if (!isOpen) {
             setIsOpen(true);
             topBreadOpen.current?.beginElement();
             bottomBreadOpen.current?.beginElement();
-            const element = dropMenuRef.current;
-            if (element) {
-              // element.style.display = "block";
-            }
           } else {
             setIsOpen(false);
             topBreadClose.current?.beginElement();
             bottomBreadClose.current?.beginElement();
-            const element = dropMenuRef.current;
-            if (element) {
-              // element.style.display = "none";
-            }
           }
         }}
       >
