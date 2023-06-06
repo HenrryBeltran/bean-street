@@ -23,19 +23,25 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
             initial={{ top: "-100vh" }}
             animate={{ top: "48px" }}
             exit={{ top: "-100vh" }}
-            transition={{ type: "tween", duration: 0.35, ease: "easeOut" }}
+            transition={{ type: "tween", duration: 0.32, ease: "easeOut" }}
             ref={ref}
             className="fixed top-12 -z-10 h-[calc(100vh-48px)] w-full overflow-scroll border-b-[16px] border-b-beige-100 bg-beige-100"
           >
             <div className="">
               <div className="flex justify-center gap-x-6 border-b border-b-brown-300 py-4 text-brown-700">
                 <a
-                  href="/"
+                  href="/sign-in"
                   className="flex items-center px-3 py-1 font-semibold transition-colors hover:text-brown-500"
+                  aria-label="Sign in"
                 >
                   Sign in
                 </a>
-                <SecondaryButton name="Sign up" buttonClass="font-semibold" />
+                <SecondaryButton
+                  name="Sign up"
+                  path="/sign-up"
+                  buttonClass="font-semibold"
+                  ariaLabel="Sign up"
+                />
               </div>
               <div className="border-b border-b-brown-300">
                 <ul className="mx-6 my-8 flex flex-col gap-y-6 text-brown-700">
@@ -56,6 +62,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                           hover: { color: "#f87171" },
                         }}
                         transition={{ duration: 0.3 }}
+                        aria-label={`${link.name} link`}
                       >
                         {link.name}
                       </motion.a>
@@ -80,7 +87,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                 </h3>
                 <ul className="flex gap-4">
                   <li className="flex h-8 w-8 items-center justify-center">
-                    <a href="https://www.instagram.com" target="_blank" className="group">
+                    <a
+                      href="https://www.instagram.com"
+                      target="_blank"
+                      aria-label="Instagram social link"
+                      className="group"
+                    >
                       <svg width="29" height="33" viewBox="0 0 29 33" fill="none">
                         <path
                           className="fill-brown-500 transition-colors group-hover:fill-red-400"
@@ -90,7 +102,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                     </a>
                   </li>
                   <li className="flex h-8 w-8 items-center justify-center">
-                    <a href="https://twitter.com" target="_blank" className="group">
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      aria-label="Twitter social link"
+                      className="group"
+                    >
                       <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
                         <path
                           className="fill-brown-500 transition-colors group-hover:fill-red-400"
@@ -100,7 +117,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                     </a>
                   </li>
                   <li className="flex h-8 w-8 items-center justify-center">
-                    <a href="https://www.facebook.com" target="_blank" className="group">
+                    <a
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      aria-label="Facebook social link"
+                      className="group"
+                    >
                       <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
                         <path
                           className="fill-brown-500 transition-colors group-hover:fill-red-400"
@@ -110,7 +132,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                     </a>
                   </li>
                   <li className="flex h-8 w-8 items-center justify-center">
-                    <a href="https://www.youtube.com" target="_blank" className="group">
+                    <a
+                      href="https://www.youtube.com"
+                      target="_blank"
+                      aria-label="Youtube social link"
+                      className="group"
+                    >
                       <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
                         <path
                           className="fill-brown-500 transition-colors group-hover:fill-red-400"
@@ -120,7 +147,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                     </a>
                   </li>
                   <li className="flex h-8 w-8 items-center justify-center">
-                    <a href="https://www.tiktok.com" target="_blank" className="group">
+                    <a
+                      href="https://www.tiktok.com"
+                      target="_blank"
+                      aria-label="Tiktok social link"
+                      className="group"
+                    >
                       <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
                         <path
                           className="fill-brown-500 transition-colors group-hover:fill-red-400"

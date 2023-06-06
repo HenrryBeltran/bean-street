@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
+import Cart from "../Cart/Cart";
 import PrimaryButton from "../PrimaryButton";
 import SecondaryButton from "../SecondaryButton";
 import NavLinks from "./NavLinks";
 import NavMenuButton from "./NavMenuButton";
 
 function Navbar() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const scrollPosition = useScrollPosition();
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 z-40 w-full transition-all duration-300 ${
         scrollPosition > 0 ? "shadow-md" : "shadow-none"
       }`}
     >
@@ -33,17 +36,21 @@ function Navbar() {
         <div className="global-select-none basis-1/3">
           <div className="flex items-center justify-between text-brown-700 before:w-1/3 before:content-['']">
             <div className="hidden lg:flex lg:gap-x-5">
-              <SecondaryButton name="Sign in" />
-              <PrimaryButton name="Sign up" />
+              <SecondaryButton path="/sign-in" name="Sign in" ariaLabel="Sign in" />
+              <PrimaryButton path="/sign-up" name="Sign up" ariaLabel="Sign up" />
             </div>
 
             <a
-              href="/"
+              href="/sign-in"
               className="whitespace-nowrap text-sm font-medium transition-colors hover:text-brown-500 lg:hidden"
+              aria-label="Sign in"
             >
               Sign in
             </a>
-            <button className="group relative mx-4 flex h-12 w-12 items-center justify-center lg:mx-8">
+            <button
+              className="group relative mx-4 flex h-12 w-12 items-center justify-center lg:mx-8"
+              onClick={() => setIsCartOpen(true)}
+            >
               <span className="absolute left-1/2 top-2.5 -translate-x-1/2 text-sm font-semibold transition-colors group-hover:text-brown-500">
                 0
               </span>
@@ -62,6 +69,8 @@ function Navbar() {
             </button>
           </div>
         </div>
+
+        <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
       </nav>
     </header>
   );

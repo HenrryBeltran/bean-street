@@ -6,6 +6,7 @@ interface Props {
   path?: string;
   buttonClass?: string;
   hoverClass?: string;
+  ariaLabel: string;
 }
 
 const SecondaryButton: FC<Props> = ({
@@ -13,14 +14,16 @@ const SecondaryButton: FC<Props> = ({
   path = "/",
   buttonClass = "",
   hoverClass = "",
+  ariaLabel,
 }) => {
   return (
     <a
       href={path}
       className={twMerge(
-        "item-center group relative flex overflow-hidden whitespace-nowrap border-2 border-brown-700 px-3 py-1 font-medium transition-colors hover:text-beige-100",
+        "global-select-none item-center group relative flex overflow-hidden whitespace-nowrap border-2 border-brown-700 px-3 py-1 font-medium transition-colors hover:text-beige-100",
         buttonClass
       )}
+      aria-label={ariaLabel}
     >
       <span className="z-10">{name}</span>
       <span
