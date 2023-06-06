@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
-import { links } from "./links";
 import { AnimatePresence, motion } from "framer-motion";
+import { links } from "./links";
 import SecondaryButton from "../SecondaryButton";
 
 interface Props {
@@ -9,10 +9,37 @@ interface Props {
 
 const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
   const [pathname, setPathname] = useState("");
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
     setPathname(window.location.pathname);
   });
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth > 1024) {
+      document.documentElement.style.overflow = "visible";
+    } else {
+      document.documentElement.style.overflow = "hidden";
+    }
+  }, [windowWidth]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "visible";
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -25,7 +52,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
             exit={{ top: "-100vh" }}
             transition={{ type: "tween", duration: 0.32, ease: "easeOut" }}
             ref={ref}
-            className="fixed top-12 -z-10 h-[calc(100vh-48px)] w-full overflow-scroll border-b-[16px] border-b-beige-100 bg-beige-100"
+            className="absolute top-0 -z-10 h-[calc(100lvh-48px)] w-screen overflow-scroll bg-beige-100"
           >
             <div className="">
               <div className="flex justify-center gap-x-6 border-b border-b-brown-300 py-4 text-brown-700">
@@ -81,7 +108,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                   ))}
                 </ul>
               </div>
-              <div className="mx-6 mt-6 flex flex-col gap-3">
+              <div className="mx-6 my-6 flex flex-col gap-3">
                 <h3 className="select-text text-lg font-semibold text-brown-700">
                   Our Socials
                 </h3>

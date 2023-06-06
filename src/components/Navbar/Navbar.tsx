@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-20 w-full transition-all duration-300 ${
         scrollPosition > 0 ? "shadow-md" : "shadow-none"
       }`}
     >

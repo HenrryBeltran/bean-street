@@ -1,11 +1,13 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar/Navbar";
+import HeroSection from "../components/Home/HeroSection";
+import Banner from "../components/Banner";
 
 const url = import.meta.env.WEBSITE_URL;
 ---
 
-<MainLayout
+<Layout
   generator="Bean Street v1.0.0"
   title="Bean Street"
   description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
@@ -13,69 +15,38 @@ const url = import.meta.env.WEBSITE_URL;
   altImage="Bean Street Logo"
 >
   <Navbar client:load />
-  <section class="mx-10 mt-12">
-    <p class="pt-6">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. A id et quae blanditiis
-      iure qui, error rerum temporibus officia est, tempora, illum quis quod. Hic minima,
-      voluptatibus non obcaecati quod amet dolorem consequuntur temporibus, vel esse dolor
-      sit, ipsum ex illum sequi fugiat incidunt. Consequatur animi nihil culpa iste,
-      repellat, praesentium, beatae iusto nulla debitis quis molestiae sed eveniet
-      ducimus. Dolorum repellat atque id fuga, eos cupiditate accusantium possimus,
-      deleniti reprehenderit, illum autem debitis ad officiis amet a sed! In tempore odit
-      explicabo dolores, asperiores assumenda, sint incidunt pariatur possimus enim
-      doloremque rem temporibus dolore cumque debitis natus doloribus at quisquam dolor,
-      alias quidem. Dolores amet aut quibusdam officia non reiciendis vel ad consequatur
-      enim, natus repudiandae aliquid exercitationem maxime nostrum eligendi. Nemo ut
-      totam illo quas quod ullam, voluptas architecto dolores porro atque, aliquid dicta
-      debitis! Minus perferendis recusandae repellat autem voluptatibus provident sequi
-      debitis, fuga corporis aliquid natus error cupiditate maiores mollitia reiciendis
-      ipsa tenetur vero ab, est pariatur? Ipsum, ab. Voluptate perferendis exercitationem
-      omnis amet! Impedit molestiae culpa animi, deleniti tenetur repellat aspernatur
-      ratione eius eligendi vero! Enim magnam dolor sit deserunt itaque. At voluptatum
-      soluta iure quo, totam mollitia odio distinctio cumque accusantium corporis ratione
-      omnis.
+  <Banner client:load />
+  <main>
+    <HeroSection />
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fugiat quidem, sit
+      repudiandae facere nisi soluta porro iste consectetur accusamus, quos impedit
+      corporis. Blanditiis inventore aliquid quasi sint adipisci atque dicta, omnis minima
+      illum eos, ex vero aut corrupti sit id magni voluptas! Quae minus temporibus natus
+      suscipit impedit accusantium quidem reiciendis quos perspiciatis. Eius repudiandae
+      vitae porro illum cum ex ab esse voluptas atque doloremque sit numquam, doloribus
+      nisi explicabo corporis dicta laboriosam at dolores inventore rem maiores ipsa
+      ipsum! Recusandae mollitia maxime temporibus asperiores. Alias similique praesentium
+      nisi blanditiis iusto eaque nemo minima vitae repellat voluptatem dolores, voluptas
+      nostrum maxime itaque fuga! Delectus quidem asperiores rem harum corporis aliquid
+      ullam, illum officiis exercitationem totam illo molestiae. Odit quod nobis eos
+      adipisci qui culpa nemo sed natus ab facilis mollitia, id architecto voluptatibus
+      laudantium maxime recusandae inventore doloribus alias unde earum deleniti iure
+      dolore ratione. Temporibus dolorum animi rem ipsa, commodi explicabo iure nulla
+      blanditiis sit ab, vitae nihil sed aliquam sapiente, quas maiores! Fugit accusamus
+      possimus ipsum cum dolore, totam dolores corporis dolorum! Maiores eius eum totam
+      tempora animi, impedit dolorum tenetur assumenda, officiis doloremque provident nam
+      laborum dignissimos autem expedita quidem? Doloremque expedita adipisci nemo,
+      deserunt illo quibusdam! Pariatur, sequi animi! Error aspernatur sit, doloribus nam
+      est obcaecati! Voluptate, et quibusdam! Eos deserunt autem, illum id fuga sunt odit
+      commodi, esse dignissimos tempora iusto veniam iure, minus perferendis iste
+      voluptate et. Quasi beatae corporis neque odit, tempore nulla quisquam, illum
+      temporibus quaerat perferendis numquam minus error sunt possimus recusandae incidunt
+      cum rem amet doloribus debitis. Tempore iste amet minus est expedita neque vero quia
+      sunt laborum, necessitatibus exercitationem architecto quisquam illum. Porro
+      provident, explicabo magni, dolores, fugit tenetur accusantium consequatur quos
+      dicta odio voluptates sunt exercitationem architecto! Accusamus cupiditate tenetur
+      saepe qui illo vel molestias dolores voluptate!
     </p>
-    <p class="pt-6">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. A id et quae blanditiis
-      iure qui, error rerum temporibus officia est, tempora, illum quis quod. Hic minima,
-      voluptatibus non obcaecati quod amet dolorem consequuntur temporibus, vel esse dolor
-      sit, ipsum ex illum sequi fugiat incidunt. Consequatur animi nihil culpa iste,
-      repellat, praesentium, beatae iusto nulla debitis quis molestiae sed eveniet
-      ducimus. Dolorum repellat atque id fuga, eos cupiditate accusantium possimus,
-      deleniti reprehenderit, illum autem debitis ad officiis amet a sed! In tempore odit
-      explicabo dolores, asperiores assumenda, sint incidunt pariatur possimus enim
-      doloremque rem temporibus dolore cumque debitis natus doloribus at quisquam dolor,
-      alias quidem. Dolores amet aut quibusdam officia non reiciendis vel ad consequatur
-      enim, natus repudiandae aliquid exercitationem maxime nostrum eligendi. Nemo ut
-      totam illo quas quod ullam, voluptas architecto dolores porro atque, aliquid dicta
-      debitis! Minus perferendis recusandae repellat autem voluptatibus provident sequi
-      debitis, fuga corporis aliquid natus error cupiditate maiores mollitia reiciendis
-      ipsa tenetur vero ab, est pariatur? Ipsum, ab. Voluptate perferendis exercitationem
-      omnis amet! Impedit molestiae culpa animi, deleniti tenetur repellat aspernatur
-      ratione eius eligendi vero! Enim magnam dolor sit deserunt itaque. At voluptatum
-      soluta iure quo, totam mollitia odio distinctio cumque accusantium corporis ratione
-      omnis.
-    </p>
-    <p class="pt-6">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. A id et quae blanditiis
-      iure qui, error rerum temporibus officia est, tempora, illum quis quod. Hic minima,
-      voluptatibus non obcaecati quod amet dolorem consequuntur temporibus, vel esse dolor
-      sit, ipsum ex illum sequi fugiat incidunt. Consequatur animi nihil culpa iste,
-      repellat, praesentium, beatae iusto nulla debitis quis molestiae sed eveniet
-      ducimus. Dolorum repellat atque id fuga, eos cupiditate accusantium possimus,
-      deleniti reprehenderit, illum autem debitis ad officiis amet a sed! In tempore odit
-      explicabo dolores, asperiores assumenda, sint incidunt pariatur possimus enim
-      doloremque rem temporibus dolore cumque debitis natus doloribus at quisquam dolor,
-      alias quidem. Dolores amet aut quibusdam officia non reiciendis vel ad consequatur
-      enim, natus repudiandae aliquid exercitationem maxime nostrum eligendi. Nemo ut
-      totam illo quas quod ullam, voluptas architecto dolores porro atque, aliquid dicta
-      debitis! Minus perferendis recusandae repellat autem voluptatibus provident sequi
-      debitis, fuga corporis aliquid natus error cupiditate maiores mollitia reiciendis
-      ipsa tenetur vero ab, est pariatur? Ipsum, ab. Voluptate perferendis exercitationem
-      omnis amet! Impedit molestiae culpa animi, deleniti tenetur repellat aspernatur
-      ratione eius eligendi vero! Enim magnam dolor sit deserunt itaque. At voluptatum
-      soluta iure quo, totam mollitia odio distinctio cumque accusantium corporis ratione
-      omnis.
-    </p>
-  </section>
-</MainLayout>
+  </main>
+</Layout>
