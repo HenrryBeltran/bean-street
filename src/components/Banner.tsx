@@ -4,8 +4,8 @@ const Banner = () => {
   return (
     <div className="h-fit w-full overflow-hidden bg-beige-200">
       <motion.div
-        initial={{ translateY: "-100%" }}
-        animate={{ translateY: 0 }}
+        initial={{ y: "-100%" }}
+        animate={{ y: 0 }}
         transition={{
           type: "tween",
           duration: 0.36,

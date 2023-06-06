@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import Cart from "../Cart/Cart";
 import PrimaryButton from "../PrimaryButton";
@@ -76,4 +76,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default memo(Navbar);
