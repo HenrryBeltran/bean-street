@@ -21,9 +21,9 @@ const Cart: FC<Props> = ({ isCartOpen, setIsCartOpen }) => {
       <AnimatePresence>
         {isCartOpen && (
           <motion.aside
-            initial={{ right: "-100%" }}
-            animate={{ right: 0 }}
-            exit={{ right: "-100%" }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.32, ease: "easeOut" }}
             className="absolute right-0 top-0 z-50 flex h-[100svh] w-full"
           >

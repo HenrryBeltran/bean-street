@@ -28,18 +28,12 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
   useEffect(() => {
     if (windowWidth > 1024) {
       document.documentElement.style.overflow = "visible";
-    } else {
+    } else if (windowWidth <= 1024 && isOpen) {
       document.documentElement.style.overflow = "hidden";
-    }
-  }, [windowWidth]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.documentElement.style.overflow = "hidden";
-    } else {
+    } else if (!isOpen) {
       document.documentElement.style.overflow = "visible";
     }
-  }, [isOpen]);
+  }, [isOpen, windowWidth]);
 
   return (
     <>
@@ -47,9 +41,9 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
         {isOpen && (
           <motion.div
             key="drop-menu"
-            initial={{ top: "-100vh" }}
-            animate={{ top: "48px" }}
-            exit={{ top: "-100vh" }}
+            initial={{ y: "-100vh" }}
+            animate={{ y: "48px" }}
+            exit={{ y: "-100vh" }}
             transition={{ type: "tween", duration: 0.32, ease: "easeOut" }}
             ref={ref}
             className="absolute top-0 -z-10 h-[calc(100lvh-48px)] w-screen overflow-scroll bg-beige-100"
