@@ -22,9 +22,9 @@ const Banner = () => {
             initial={{ color: "#f7f4f0" }}
             animate={{ color: "#4d403d" }}
             transition={{ delay: 1.5, duration: 0.32 }}
-            className="w-2/5 text-center text-xs text-brown-700"
+            className="flex w-2/5 flex-col items-center text-center text-xs text-brown-700"
           >
-            10% discount in all drinks{" "}
+            <span>10% discount in all drinks </span>
             <span className="whitespace-nowrap">
               <a
                 href="/shop"

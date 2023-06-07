@@ -18,7 +18,9 @@ const NavLinks = () => {
           initial="idle"
           whileHover="hover"
         >
-          <a href={link.route}>{link.name}</a>
+          <a href={link.route} className="whitespace-nowrap">
+            {link.name}
+          </a>
           <motion.span
             animate={{ scale: pathname === link.route ? 1 : 0 }}
             variants={{
