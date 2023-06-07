@@ -7,20 +7,9 @@ interface Props {
   description: string;
   websiteUrl: string;
   altImage: string;
-  preloadImage?: {
-    preload?: boolean;
-    path?: string;
-  };
 }
 
-const {
-  generator,
-  title,
-  description,
-  websiteUrl,
-  altImage,
-  preloadImage = { preload: false, path: "" },
-} = Astro.props as Props;
+const { generator, title, description, websiteUrl, altImage } = Astro.props as Props;
 ---
 
 <html lang="en">
@@ -42,8 +31,6 @@ const {
       type="font/woff2"
       crossorigin
     />
-    <!-- Preload Image -->
-    {preloadImage.preload && <link rel="preload" as="image" href="/assets/" />}
   </head>
   <body class="bg-beige-100 selection:bg-yellow-200">
     <slot />

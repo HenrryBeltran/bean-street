@@ -25,14 +25,16 @@ const Banner = () => {
             className="w-2/5 text-center text-xs text-brown-700"
           >
             10% discount in all drinks{" "}
-            <a
-              href="/shop"
-              aria-label="Go to shop"
-              className="font-semibold hover:underline"
-            >
-              Shop Now
-            </a>
-            <span className="font-semibold hover:underline"> {">"}</span>
+            <span className="whitespace-nowrap">
+              <a
+                href="/shop"
+                aria-label="Go to shop"
+                className="font-semibold hover:underline"
+              >
+                Shop Now
+              </a>
+              <span className="font-semibold hover:underline"> {">"}</span>
+            </span>
           </motion.p>
         </motion.div>
       </motion.div>

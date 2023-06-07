@@ -1,52 +1,76 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import SEO from "../components/SEO.astro";
 import Navbar from "../components/Navbar/Navbar";
-import HeroSection from "../components/Home/HeroSection";
 import Banner from "../components/Banner";
+import HeroSection from "../components/Home/HeroSection";
 
 const url = import.meta.env.WEBSITE_URL;
 ---
 
-<Layout
-  generator="Bean Street v1.0.0"
-  title="Bean Street"
-  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
-  websiteUrl={url}
-  altImage="Bean Street Logo"
->
-  <Navbar client:load />
-  <Banner client:load />
-  <main>
-    <HeroSection />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fugiat quidem, sit
-      repudiandae facere nisi soluta porro iste consectetur accusamus, quos impedit
-      corporis. Blanditiis inventore aliquid quasi sint adipisci atque dicta, omnis minima
-      illum eos, ex vero aut corrupti sit id magni voluptas! Quae minus temporibus natus
-      suscipit impedit accusantium quidem reiciendis quos perspiciatis. Eius repudiandae
-      vitae porro illum cum ex ab esse voluptas atque doloremque sit numquam, doloribus
-      nisi explicabo corporis dicta laboriosam at dolores inventore rem maiores ipsa
-      ipsum! Recusandae mollitia maxime temporibus asperiores. Alias similique praesentium
-      nisi blanditiis iusto eaque nemo minima vitae repellat voluptatem dolores, voluptas
-      nostrum maxime itaque fuga! Delectus quidem asperiores rem harum corporis aliquid
-      ullam, illum officiis exercitationem totam illo molestiae. Odit quod nobis eos
-      adipisci qui culpa nemo sed natus ab facilis mollitia, id architecto voluptatibus
-      laudantium maxime recusandae inventore doloribus alias unde earum deleniti iure
-      dolore ratione. Temporibus dolorum animi rem ipsa, commodi explicabo iure nulla
-      blanditiis sit ab, vitae nihil sed aliquam sapiente, quas maiores! Fugit accusamus
-      possimus ipsum cum dolore, totam dolores corporis dolorum! Maiores eius eum totam
-      tempora animi, impedit dolorum tenetur assumenda, officiis doloremque provident nam
-      laborum dignissimos autem expedita quidem? Doloremque expedita adipisci nemo,
-      deserunt illo quibusdam! Pariatur, sequi animi! Error aspernatur sit, doloribus nam
-      est obcaecati! Voluptate, et quibusdam! Eos deserunt autem, illum id fuga sunt odit
-      commodi, esse dignissimos tempora iusto veniam iure, minus perferendis iste
-      voluptate et. Quasi beatae corporis neque odit, tempore nulla quisquam, illum
-      temporibus quaerat perferendis numquam minus error sunt possimus recusandae incidunt
-      cum rem amet doloribus debitis. Tempore iste amet minus est expedita neque vero quia
-      sunt laborum, necessitatibus exercitationem architecto quisquam illum. Porro
-      provident, explicabo magni, dolores, fugit tenetur accusantium consequatur quos
-      dicta odio voluptates sunt exercitationem architecto! Accusamus cupiditate tenetur
-      saepe qui illo vel molestias dolores voluptate!
-    </p>
-  </main>
-</Layout>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/beanstreet/style.css" />
+    <SEO
+      generator="Bean Street v1.0.0"
+      title="Bean Street"
+      description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+      websiteUrl={url}
+      altImage="Bean Street Logo"
+    />
+    <!-- Preload Font -->
+    <link
+      rel="preload"
+      href="/fonts/boska-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/poppins-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <!-- Preload Image -->
+    <!-- <link rel="preload" as="image" href="/assets/images/bean-street-hero-small-2x.jpg" /> -->
+  </head>
+  <body class="bg-beige-100 selection:bg-yellow-200">
+    <Navbar client:load />
+    <Banner client:load />
+    <main>
+      <HeroSection />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fugiat quidem, sit
+        repudiandae facere nisi soluta porro iste consectetur accusamus, quos impedit
+        corporis. Blanditiis inventore aliquid quasi sint adipisci atque dicta, omnis
+        minima illum eos, ex vero aut corrupti sit id magni voluptas! Quae minus
+        temporibus natus suscipit impedit accusantium quidem reiciendis quos perspiciatis.
+        Eius repudiandae vitae porro illum cum ex ab esse voluptas atque doloremque sit
+        numquam, doloribus nisi explicabo corporis dicta laboriosam at dolores inventore
+        rem maiores ipsa ipsum! Recusandae mollitia maxime temporibus asperiores. Alias
+        similique praesentium nisi blanditiis iusto eaque nemo minima vitae repellat
+        voluptatem dolores, voluptas nostrum maxime itaque fuga! Delectus quidem
+        asperiores rem harum corporis aliquid ullam, illum officiis exercitationem totam
+        illo molestiae. Odit quod nobis eos adipisci qui culpa nemo sed natus ab facilis
+        mollitia, id architecto voluptatibus laudantium maxime recusandae inventore
+        doloribus alias unde earum deleniti iure dolore ratione. Temporibus dolorum animi
+        rem ipsa, commodi explicabo iure nulla blanditiis sit ab, vitae nihil sed aliquam
+        sapiente, quas maiores! Fugit accusamus possimus ipsum cum dolore, totam dolores
+        corporis dolorum! Maiores eius eum totam tempora animi, impedit dolorum tenetur
+        assumenda, officiis doloremque provident nam laborum dignissimos autem expedita
+        quidem? Doloremque expedita adipisci nemo, deserunt illo quibusdam! Pariatur,
+        sequi animi! Error aspernatur sit, doloribus nam est obcaecati! Voluptate, et
+        quibusdam! Eos deserunt autem, illum id fuga sunt odit commodi, esse dignissimos
+        tempora iusto veniam iure, minus perferendis iste voluptate et. Quasi beatae
+        corporis neque odit, tempore nulla quisquam, illum temporibus quaerat perferendis
+        numquam minus error sunt possimus recusandae incidunt cum rem amet doloribus
+        debitis. Tempore iste amet minus est expedita neque vero quia sunt laborum,
+        necessitatibus exercitationem architecto quisquam illum. Porro provident,
+        explicabo magni, dolores, fugit tenetur accusantium consequatur quos dicta odio
+        voluptates sunt exercitationem architecto! Accusamus cupiditate tenetur saepe qui
+        illo vel molestias dolores voluptate!
+      </p>
+    </main>
+  </body>
+</html>
