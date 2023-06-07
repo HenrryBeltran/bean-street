@@ -2,17 +2,21 @@ import PrimaryButton from "../PrimaryButton";
 
 function HeroSection() {
   return (
-    <section className="bg-beige-300 sm:h-[calc(100lvh-104px)] sm:min-h-[640px] xl:h-[calc(100lvh-120px)]">
-      <div className="flex flex-col sm:h-full  sm:flex-row-reverse">
+    <section className="bg-beige-300 sm:h-[calc(100lvh-104px)] sm:max-h-[1080px] sm:min-h-[640px] xl:h-[calc(100lvh-120px)]">
+      <div className="flex flex-col sm:mx-auto sm:h-full sm:max-w-[1920px] sm:flex-row-reverse">
         <picture className="flex w-full justify-center sm:w-1/2">
           <source
-            srcSet="/assets/images/bean-street-hero-medium.jpg 1x, /assets/images/bean-street-hero-medium-2x.jpg 2x"
+            srcSet="/assets/images/hero/bean-street-hero-large.jpg 1x, /assets/images/hero/bean-street-hero-large-2x.jpg 2x"
+            media="(min-width:1080px)"
+          />
+          <source
+            srcSet="/assets/images/hero/bean-street-hero-medium.jpg 1x, /assets/images/hero/bean-street-hero-medium-2x.jpg 2x"
             media="(min-width:640px)"
           />
           <img
-            className="h-80 w-full object-cover sm:h-full"
+            className="h-80 w-full bg-brown-500 object-cover sm:h-full"
             src="/assets/images/bean-street-hero-small.jpg"
-            srcSet="/assets/images/bean-street-hero-small.jpg 1x, /assets/images/bean-street-hero-small-2x.jpg 2x"
+            srcSet="/assets/images/hero/bean-street-hero-small.jpg 1x, /assets/images/hero/bean-street-hero-small-2x.jpg 2x"
             alt="Bean Street Coffee Shop"
           />
         </picture>
