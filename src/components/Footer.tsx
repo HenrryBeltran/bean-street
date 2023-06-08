@@ -231,7 +231,14 @@ function Footer() {
           <div>
             <span className="block px-6 text-center text-sm md:p-0 md:text-start">
               &copy;2023 Bean Street, Design and Code{" "}
-              <span className="whitespace-nowrap">by Henrry Beltrán</span>
+              <a
+                className="transition-all hover:font-semibold hover:text-brown-900"
+                href="https://henrrybeltran.vercel.app"
+                target="_blank"
+                aria-label="Developer & Designer - Henrry Beltrán"
+              >
+                <span className="whitespace-nowrap">by Henrry Beltrán</span>
+              </a>
             </span>
           </div>
         </div>
