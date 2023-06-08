@@ -1,5 +1,5 @@
 ---
-import SEO from "../components/SEO.astro";
+import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar/Navbar";
 import Banner from "../components/Banner";
 import HeroSection from "../components/Home/HeroSection";
@@ -8,39 +8,17 @@ import AboutSection from "../components/Home/AboutSection";
 const url = import.meta.env.WEBSITE_URL;
 ---
 
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="/beanstreet/style.css" />
-    <SEO
-      generator="Bean Street v1.0.0"
-      title="Bean Street"
-      description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
-      websiteUrl={url}
-      altImage="Bean Street Logo"
-    />
-    <!-- Preload Font -->
-    <link
-      rel="preload"
-      href="/fonts/boska-variable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/poppins-variable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <!-- Preload Image -->
-    <!-- <link rel="preload" as="image" href="/assets/images/bean-street-hero-small-2x.jpg" /> -->
-  </head>
-  <body class="bg-beige-100 selection:bg-yellow-200">
-    <Navbar client:load />
-    <Banner client:load />
-    <main>
-      <HeroSection />
-    </main>
-  </body>
-</html>
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street"
+  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+  websiteUrl={url}
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <Banner client:load />
+  <main>
+    <HeroSection />
+    <AboutSection />
+  </main>
+</Layout>
