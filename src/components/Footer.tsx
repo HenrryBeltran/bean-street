@@ -9,6 +9,7 @@ function Footer() {
             height={64}
             src="/assets/bean-street-big-logo.svg"
             alt="Bean Street SVG logo"
+            loading="lazy"
           />
           <div className="space-y-4">
             <h3 className="font-bold text-brown-800">Bean Street</h3>
@@ -248,6 +249,7 @@ function Footer() {
             height={428}
             src="/assets/frappe-coffee.svg"
             alt="Frappe Coffee SVG"
+            loading="lazy"
           />
         </div>
       </div>
