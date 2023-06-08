@@ -8,7 +8,7 @@ function AboutSection() {
       <div className="w-full max-w-[1728px] sm:py-24 xl:mx-auto xl:flex xl:flex-row-reverse xl:items-center xl:justify-center xl:gap-24 xl:py-28">
         <div className="sm:flex sm:flex-row-reverse sm:gap-16 sm:px-16 sm:pb-24 xl:max-w-[600px] xl:flex-col-reverse xl:p-0">
           <div className="mx-auto flex items-end justify-evenly px-6 py-8 sm:w-1/3 sm:justify-between sm:p-0 xl:w-full xl:justify-start">
-            <CoffeeMachine extendClass="w-[120px] h-[200px] xl:w-[235px] h-[360px] sm:mr-4 xl:mr-24" />
+            <CoffeeMachine extendClass="w-[120px] h-[200px] xl:w-[235px] xl:h-[360px] sm:mr-4 xl:mr-24" />
             <LatteCoffeeIcon extendClass="w-24 h-24 xl:w-[180px] xl:h-[180px]" />
           </div>
           <div className="flex flex-col items-center px-6 py-8 sm:w-2/3 sm:p-0 xl:w-full xl:items-start">
