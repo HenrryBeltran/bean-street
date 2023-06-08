@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer";
+import PrimaryButton from "../components/PrimaryButton";
+
+const url = import.meta.env.WEBSITE_URL;
+---
+
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street - 404 Page"
+  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+  websiteUrl={url}
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <main class="w-full">
+    <section class="min-h-[720px] max-w-[1920px] bg-beige-100">
+      <div class="flex flex-col items-center px-6 py-11">
+        <h1
+          class="mb-8 font-serif text-4xl font-black leading-none text-brown-700 xl:text-6xl"
+        >
+          Whoops!
+        </h1>
+        <h2 class="text-center text-xl leading-8 text-brown-600 xl:w-1/3">
+          We're sorry, it looks like the page you're looking for isn't in our system.
+        </h2>
+        <img
+          class="mb-12 mt-10"
+          width="230"
+          height="230"
+          src="/assets/cup-of-chocolate.svg"
+          alt="Cup of chocolate"
+        />
+        <PrimaryButton
+          path="/"
+          name="Go home"
+          ariaLabel="Go home button"
+          buttonClass="w-fit px-5 py-2 sm:px-6 sm:py-3 sm:text-2xl text-lg"
+        />
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>

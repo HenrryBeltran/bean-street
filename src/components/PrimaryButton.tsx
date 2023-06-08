@@ -25,7 +25,7 @@ const PrimaryButton: FC<Props> = ({
       )}
       aria-label={ariaLabel}
     >
-      <span className="z-10">{name}</span>
+      <span className="z-10 transition group-hover:text-brown-700">{name}</span>
       <span
         className={twMerge(
           "absolute -bottom-[150%] left-0 h-full w-full bg-red-400 transition-all duration-300 group-hover:bottom-0",
