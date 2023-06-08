@@ -24,10 +24,10 @@ function Navbar() {
         <div className="global-select-none mx-auto transition-opacity duration-200 hover:opacity-75 lg:ml-10 lg:basis-1/3">
           <a href="/">
             <svg
-              className="aspect-auto h-8 sm:h-9"
+              className="max-h-8 w-full lg:max-h-9 lg:w-[104px]"
               aria-label="Bean Stree Coffee Shop"
-              width="116"
-              height="41"
+              width="104"
+              height="36"
               viewBox="0 0 116 41"
             >
               <path
