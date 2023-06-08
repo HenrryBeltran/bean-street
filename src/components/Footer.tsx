@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <footer className="relative flex w-full justify-center overflow-hidden border-t border-t-brown-300 bg-beige-200">
-      <div className="max-w-[1920px] px-6 pt-6 text-brown-700">
-        <div className="mb-11">
+      <div className="grid max-w-[1920px] grid-cols-1 px-6 pt-6 text-brown-700 md:grid-cols-6 md:grid-rows-2 md:gap-8 md:px-16 md:pt-16 xl:grid-cols-7 xl:grid-rows-none xl:px-24 xl:pt-24">
+        <div className="mb-11 md:col-span-2 md:mb-32 xl:m-0 xl:h-fit">
           <img
             className="mb-6"
             width={83}
@@ -18,7 +18,7 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div className="mb-7">
+        <div className="mb-7 xl:col-start-4 xl:m-0 xl:h-fit">
           <ul className="space-y-3 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Coffee Shop</span>
@@ -61,7 +61,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="mb-11 space-y-7">
+        <div className="mb-11 space-y-7 xl:m-0 xl:h-fit">
           <ul className="space-y-3 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Buy</span>
@@ -109,7 +109,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="mb-16 space-y-7">
+        <div className="mb-16 space-y-7 md:col-span-2 xl:m-0 xl:h-fit">
           <div className="space-y-3 text-brown-800">
             <h4 className="font-bold">Contact Us</h4>
             <a
@@ -128,7 +128,7 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div className="mb-16">
+        <div className="mb-16 md:col-span-2 md:place-self-end md:justify-self-start xl:mb-24 xl:h-min">
           <ul className="flex items-center justify-center gap-6 text-brown-500">
             <li className="flex h-7 w-7 items-center justify-center">
               <a
@@ -227,17 +227,22 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="pb-[420px]">
+        <div className="pb-[420px] md:col-span-2 md:col-start-5 md:mb-16 md:place-self-end md:justify-self-start md:p-0 xl:col-start-6 xl:mb-24 xl:h-min">
           <div>
-            <span className="block text-center text-sm">
+            <span className="block px-6 text-center text-sm md:p-0 md:text-start">
               &copy;2023 Bean Street, Design and Code{" "}
               <span className="whitespace-nowrap">by Henrry Beltrán</span>
             </span>
           </div>
         </div>
-      </div>
-      <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
-        <img src="/assets/frappe-coffee.svg" alt="Frappe Coffee SVG" />
+        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 xl:relative xl:bottom-0 xl:col-span-2 xl:col-start-3 xl:row-start-2 xl:max-h-[calc(428px-64px)]">
+          <img
+            width={187}
+            height={428}
+            src="/assets/frappe-coffee.svg"
+            alt="Frappe Coffee SVG"
+          />
+        </div>
       </div>
     </footer>
   );
