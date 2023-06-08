@@ -2,14 +2,15 @@ function Footer() {
   return (
     <footer className="relative flex w-full justify-center overflow-hidden border-t border-t-brown-300 bg-beige-200">
       <div className="max-w-[1920px] px-6 pt-6 text-brown-700">
-        <div>
+        <div className="mb-11">
           <img
+            className="mb-6"
             width={83}
             height={64}
             src="/assets/bean-street-big-logo.svg"
             alt="Bean Street SVG logo"
           />
-          <div>
+          <div className="space-y-4">
             <h3 className="font-bold text-brown-800">Bean Street</h3>
             <p className="text-sm font-light leading-6">
               Enjoy the cozy and modern atmosphere of our coffee shop as you catch up with
@@ -17,8 +18,8 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div>
-          <ul className="text-brown-600">
+        <div className="mb-7">
+          <ul className="space-y-3 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Coffee Shop</span>
             </li>
@@ -60,8 +61,8 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
-          <ul className="text-brown-600">
+        <div className="mb-11 space-y-7">
+          <ul className="space-y-3 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Buy</span>
             </li>
@@ -84,7 +85,7 @@ function Footer() {
               </a>
             </li>
           </ul>
-          <ul>
+          <ul className="space-y-3 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Policy</span>
             </li>
@@ -108,17 +109,17 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
-          <div className="text-brown-800">
+        <div className="mb-16 space-y-7">
+          <div className="space-y-3 text-brown-800">
             <h4 className="font-bold">Contact Us</h4>
             <a
-              className="hover:underline"
+              className="block w-fit hover:underline"
               href="mailto:info@beanstreet.com"
               aria-label="Bean Street email"
             >
               info@beanstreet.com
             </a>
-            <span>+01 598 222 4444</span>
+            <span className="block">+01 598 222 4444</span>
           </div>
           <div>
             <p className="text-sm font-light leading-6">
@@ -127,8 +128,8 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div>
-          <ul className="flex gap-6">
+        <div className="mb-16">
+          <ul className="flex items-center justify-center gap-6">
             <li className="flex h-7 w-7 items-center justify-center">
               <a
                 href="https://www.instagram.com"
@@ -208,13 +209,14 @@ function Footer() {
         </div>
         <div className="pb-[420px]">
           <div>
-            <span className="text-sm">
-              &copy;2023 Bean Street, Design and Code by Henrry Beltrán
+            <span className="block text-center text-sm">
+              &copy;2023 Bean Street, Design and Code{" "}
+              <span className="whitespace-nowrap">by Henrry Beltrán</span>
             </span>
           </div>
         </div>
       </div>
-      <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
         <img src="/assets/frappe-coffee.svg" alt="Frappe Coffee SVG" />
       </div>
     </footer>
