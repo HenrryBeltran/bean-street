@@ -10,8 +10,8 @@ const NavLinks = () => {
   });
 
   return (
-    <ul className="mx-4 hidden text-brown-700 transition-all lg:flex lg:basis-1/3 lg:justify-center lg:space-x-8">
-      {links.map(link => (
+    <ul className="mx-4 hidden text-brown-700 transition-all md:flex md:basis-1/3 md:justify-center md:space-x-8">
+      {links.slice(1).map(link => (
         <motion.li
           key={link.name}
           className="group relative"
