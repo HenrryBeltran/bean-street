@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar/Navbar";
+import Banner from "../../components/Banner";
+import Footer from "../../components/Footer";
+
+const url = import.meta.env.WEBSITE_URL;
+---
+
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street"
+  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+  websiteUrl={url}
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <Banner client:load />
+  <main class="w-full">
+    <section class="bg-brown-700">
+      <div class="max-w-[1980px] space-y-6 px-6 py-9">
+        <h1
+          class="text-center font-serif text-6xl font-black leading-none text-beige-100"
+        >
+          Find Bean Street Near You
+        </h1>
+        <p class="text-center text-xl font-light leading-8 text-beige-300">
+          Find a cozy spot to relax and enjoy your delicious drink, whether with friends
+          or alone.
+        </p>
+      </div>
+    </section>
+    <section class="py-11">
+      <div class="max-w-[1980px] px-6">
+        <div class="mb-11">
+          <h2 class="mb-6 font-serif text-5xl font-black leading-none text-orange-500">
+            South San Francisco
+          </h2>
+          <p class="mb-2 text-brown-700">349 Grand Ave, CA 94080.</p>
+          <p class="mb-10 text-brown-500">+01 555 111 4444</p>
+          <div class="relative -z-10 w-full bg-beige-200">
+            <svg
+              class="absolute left-1/2 top-1/2 -z-10 h-8 w-8 -translate-x-1/2 -translate-y-full fill-red-400"
+              width="129"
+              height="128"
+              viewBox="0 0 129 128"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M110.233 46.6432C110.233 21.5173 89.8482 1.13211 64.7222 1.13211C39.5963 1.13211 19.2111 21.5173 19.2111 46.6432C19.2111 76.335 47.5548 104.233 64.7222 126.868C81.8897 104.233 110.233 76.335 110.233 46.6432ZM64.7222 31.4728C68.7457 31.4728 72.6043 33.0712 75.4493 35.9161C78.2943 38.7611 79.8926 42.6198 79.8926 46.6432C79.8926 50.6667 78.2943 54.5253 75.4493 57.3703C72.6043 60.2153 68.7457 61.8136 64.7222 61.8136C60.6988 61.8136 56.8402 60.2153 53.9952 57.3703C51.1502 54.5253 49.5519 50.6667 49.5519 46.6432C49.5519 42.6198 51.1502 38.7611 53.9952 35.9161C56.8402 33.0712 60.6988 31.4728 64.7222 31.4728Z"
+              ></path>
+            </svg>
+            <iframe
+              class="w-full"
+              width="450"
+              height="250"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA_XLu0jMoWatfpboId2OmopZJteLRY218&q=349 Grand Ave, South San Francisco, CA 94080, USA"
+            >
+            </iframe>
+          </div>
+        </div>
+        <div>
+          <h2 class="mb-6 font-serif text-5xl font-black leading-none text-orange-500">
+            New York
+          </h2>
+          <p class="mb-2 text-brown-700">421 W 13th St, NY 10014.</p>
+          <p class="mb-10 text-brown-500">+01 555 222 4444</p>
+          <div class="relative -z-10 w-full bg-beige-200">
+            <svg
+              class="absolute left-1/2 top-1/2 -z-10 h-8 w-8 -translate-x-1/2 -translate-y-full fill-red-400"
+              width="129"
+              height="128"
+              viewBox="0 0 129 128"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M110.233 46.6432C110.233 21.5173 89.8482 1.13211 64.7222 1.13211C39.5963 1.13211 19.2111 21.5173 19.2111 46.6432C19.2111 76.335 47.5548 104.233 64.7222 126.868C81.8897 104.233 110.233 76.335 110.233 46.6432ZM64.7222 31.4728C68.7457 31.4728 72.6043 33.0712 75.4493 35.9161C78.2943 38.7611 79.8926 42.6198 79.8926 46.6432C79.8926 50.6667 78.2943 54.5253 75.4493 57.3703C72.6043 60.2153 68.7457 61.8136 64.7222 61.8136C60.6988 61.8136 56.8402 60.2153 53.9952 57.3703C51.1502 54.5253 49.5519 50.6667 49.5519 46.6432C49.5519 42.6198 51.1502 38.7611 53.9952 35.9161C56.8402 33.0712 60.6988 31.4728 64.7222 31.4728Z"
+              ></path>
+            </svg>
+            <iframe
+              class="w-full"
+              width="450"
+              height="250"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA_XLu0jMoWatfpboId2OmopZJteLRY218&q=421 W 13th St, New York, NY 10014, USA"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>
