@@ -2,7 +2,7 @@ import PrimaryButton from "../PrimaryButton";
 
 function HeroSection() {
   return (
-    <section className="bg-beige-300 sm:h-[calc(100lvh-104px)] sm:max-h-[1080px] sm:min-h-[640px] xl:h-[calc(100lvh-120px)]">
+    <section className="bg-beige-300 sm:h-[calc(100lvh-92px)] sm:max-h-[1080px] sm:min-h-[640px] xl:h-[calc(100lvh-108px)]">
       <div className="flex flex-col sm:mx-auto sm:h-full sm:max-w-[1920px] sm:flex-row-reverse">
         <picture className="flex w-full justify-center sm:w-1/2">
           <source
