@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        "target-hover": { raw: "(hover: hover)" },
         md: "834px",
       },
       colors: {

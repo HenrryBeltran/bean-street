@@ -67,38 +67,22 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
               <div className="border-b border-b-brown-300">
                 <ul className="mx-6 my-8 flex flex-col gap-y-6 text-brown-700">
                   {links.map(link => (
-                    <motion.li
-                      key={link.name}
-                      className="group flex items-center gap-x-3"
-                      initial="idle"
-                      whileHover="hover"
-                    >
-                      <motion.a
+                    <li key={link.name} className="group flex items-center gap-x-3">
+                      <a
                         href={link.route}
-                        className="text-3xl font-medium leading-none"
-                        animate={{
-                          color: pathname === link.route ? "#f87171" : "#4d403d",
-                        }}
-                        variants={{
-                          hover: { color: "#f87171" },
-                        }}
-                        transition={{ duration: 0.3 }}
+                        className={`text-3xl font-medium leading-none ${
+                          pathname === link.route ? "text-red-400" : "text-brown-700"
+                        } transition-colors duration-300 target-hover:group-hover:text-red-400`}
                         aria-label={`${link.name} link`}
                       >
                         {link.name}
-                      </motion.a>
-                      <motion.span
-                        className="inline-block h-2 w-2 rounded-full bg-red-400"
-                        animate={{
-                          scale: pathname === link.route ? 1 : 0,
-                        }}
-                        variants={{
-                          idle: { scale: 0 },
-                          hover: { scale: 1 },
-                        }}
-                        transition={{ duration: 0.3 }}
-                      ></motion.span>
-                    </motion.li>
+                      </a>
+                      <span
+                        className={`inline-block h-2 w-2 rounded-full bg-red-400 ${
+                          pathname === link.route ? "scale-100" : "scale-0"
+                        } transition-transform duration-300 target-hover:group-hover:scale-100`}
+                      ></span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -114,7 +98,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Instagram social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 group-hover:text-red-400">
+                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
                         <svg
                           width="29"
                           height="33"
@@ -133,7 +117,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Twitter social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 group-hover:text-red-400">
+                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
                         <svg
                           width="33"
                           height="33"
@@ -152,7 +136,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Facebook social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 group-hover:text-red-400">
+                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
                         <svg
                           width="33"
                           height="33"
@@ -171,7 +155,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Youtube social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 group-hover:text-red-400">
+                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
                         <svg
                           width="33"
                           height="33"
@@ -190,7 +174,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Tiktok social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 group-hover:text-red-400">
+                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
                         <svg
                           width="33"
                           height="33"

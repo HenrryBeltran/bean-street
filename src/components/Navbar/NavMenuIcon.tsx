@@ -17,7 +17,7 @@ const NavMenuIcon: FC<Props> = ({
     <svg width="22" height="22" viewBox="0 0 22 22">
       <polyline
         fill="none"
-        className="stroke-brown-700 transition-colors group-hover:stroke-brown-500"
+        className="stroke-brown-700 transition-colors target-hover:group-hover:stroke-brown-500"
         strokeWidth="2"
         points="0 6, 22 6"
       >
@@ -44,7 +44,7 @@ const NavMenuIcon: FC<Props> = ({
       </polyline>
       <polyline
         fill="none"
-        className="stroke-brown-700 transition-colors group-hover:stroke-brown-500"
+        className="stroke-brown-700 transition-colors target-hover:group-hover:stroke-brown-500"
         strokeWidth="2"
         points="0 16, 22 16"
       >

@@ -19,7 +19,7 @@ const url = import.meta.env.WEBSITE_URL;
   <Banner client:load />
   <main class="w-full">
     <section class="flex justify-center">
-      <div class="relative flex flex-col items-center">
+      <div class="relative flex w-full flex-col items-center">
         <picture class="w-full">
           <source
             srcset="/assets/images/about-us/about-us-story-large.jpg 1x, /assets/images/about-us/about-us-story-large-2x.jpg 2x"
@@ -30,7 +30,7 @@ const url = import.meta.env.WEBSITE_URL;
             media="(min-width:640px)"
           />
           <img
-            class="aspect-video w-full object-cover md:min-h-[1280px] md:w-auto"
+            class="aspect-video w-full object-cover md:min-h-[1280px]"
             width="430"
             src="/assets/images/about-us/about-us-story-small.jpg"
             srcset="/assets/images/about-us/about-us-story-small.jpg 1x, /assets/images/about-us/about-us-story-small-2x.jpg 2x"
@@ -38,10 +38,14 @@ const url = import.meta.env.WEBSITE_URL;
           />
         </picture>
         <div
-          class="bg-beige-300 px-6 py-8 sm:px-[12%] md:absolute md:right-1/2 md:top-0 md:w-[700px] md:translate-x-1/2 md:p-16 xl:right-32 xl:translate-x-0"
+          class="absolute top-0 z-10 hidden aspect-video min-h-[1280px] w-full bg-brown-800/20 md:block"
+        >
+        </div>
+        <div
+          class="z-10 bg-beige-300 px-6 py-8 sm:px-[12%] md:absolute md:right-1/2 md:top-0 md:w-[700px] md:translate-x-1/2 md:p-16 xl:right-[10%] xl:translate-x-0 2xl:right-[15%]"
         >
           <h1
-            class="mb-2 font-serif text-4xl font-black leading-none text-orange-500 md:text-5xl"
+            class="mb-2 origin-left scale-x-110 font-serif text-4xl font-semibold leading-none tracking-tight text-brown-700 md:text-5xl"
           >
             Our Story
           </h1>
@@ -71,7 +75,7 @@ const url = import.meta.env.WEBSITE_URL;
             name="Shop Now"
             ariaLabel="Shop now"
             buttonClass="mx-auto md:m-0 w-fit px-5 py-2 sm:px-6 sm:py-3 sm:text-2xl text-lg"
-            hoverClass="bg-orange-400"
+            hoverClass="bg-beige-300"
           />
         </div>
       </div>

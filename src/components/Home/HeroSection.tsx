@@ -34,6 +34,7 @@ function HeroSection() {
               name="Shop Now"
               ariaLabel="Shop now"
               buttonClass="w-fit px-5 py-2 sm:px-6 sm:py-3 sm:text-2xl text-lg"
+              hoverClass="bg-beige-300"
             />
           </div>
         </div>
