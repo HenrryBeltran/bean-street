@@ -2,7 +2,7 @@ function BeanStreet() {
   return (
     <a href="/">
       <svg
-        className="h-8 w-full md:ml-10 md:h-9 md:w-[104px]"
+        className="h-8 transition-opacity duration-200 group-hover:opacity-75 md:ml-10 md:h-9 md:w-[104px]"
         aria-label="Bean Stree Coffee Shop"
         width="104"
         height="36"

@@ -22,8 +22,10 @@ function Navbar() {
           <NavMenuButton />
         </div>
 
-        <div className="global-select-none mx-auto transition-opacity duration-200 hover:opacity-75 md:basis-1/3">
-          <BeanStreet />
+        <div className="global-select-none mx-auto md:basis-1/3">
+          <div className="group flex w-fit items-center justify-center">
+            <BeanStreet />
+          </div>
         </div>
 
         <NavLinks />
