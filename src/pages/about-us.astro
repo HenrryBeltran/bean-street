@@ -10,9 +10,9 @@ const url = import.meta.env.WEBSITE_URL;
 
 <Layout
   generator="Bean Street v1.0.0"
-  title="Bean Street"
-  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
-  websiteUrl={url}
+  title="Bean Street - About us"
+  description="Bean Street Coffee Shop was founded by two coffee lovers, Jane and John. They had a passion for coffee, but found it difficult to find a coffee shop that offered the perfect blend of quality, atmosphere, and service."
+  websiteUrl={`${url}/about-us`}
   altImage="Bean Street Logo"
 >
   <Navbar client:load />
@@ -31,6 +31,7 @@ const url = import.meta.env.WEBSITE_URL;
           />
           <img
             class="aspect-video w-full object-cover md:min-h-[1280px] md:w-auto"
+            width="430"
             src="/assets/images/about-us/about-us-story-small.jpg"
             srcset="/assets/images/about-us/about-us-story-small.jpg 1x, /assets/images/about-us/about-us-story-small-2x.jpg 2x"
             alt="About us cover"
@@ -122,6 +123,7 @@ const url = import.meta.env.WEBSITE_URL;
             />
             <img
               class="aspect-[4/5] w-full sm:w-[500px]"
+              width="430"
               src="/assets/images/our-mission/our-mission-cover-small.jpg"
               srcset="/assets/images/our-mission/our-mission-cover-small.jpg 1x, /assets/images/our-mission/our-mission-cover-small-2x.jpg 2x"
               alt="Customer enjoying a coffee"
