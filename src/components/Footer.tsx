@@ -20,7 +20,7 @@ function Footer() {
           </div>
         </div>
         <div className="mb-7 xl:col-start-4 xl:m-0 xl:h-fit">
-          <ul className="space-y-3 text-brown-600">
+          <ul className="space-y-2 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Coffee Shop</span>
             </li>
@@ -63,7 +63,7 @@ function Footer() {
           </ul>
         </div>
         <div className="mb-11 space-y-7 xl:m-0 xl:h-fit">
-          <ul className="space-y-3 text-brown-600">
+          <ul className="space-y-2 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Buy</span>
             </li>
@@ -86,7 +86,7 @@ function Footer() {
               </a>
             </li>
           </ul>
-          <ul className="space-y-3 text-brown-600">
+          <ul className="space-y-2 text-brown-600">
             <li>
               <span className="font-bold text-brown-800">Policy</span>
             </li>
@@ -111,7 +111,7 @@ function Footer() {
           </ul>
         </div>
         <div className="mb-16 space-y-7 md:col-span-2 xl:m-0 xl:h-fit">
-          <div className="space-y-3 text-brown-800">
+          <div className="space-y-2 text-brown-800">
             <h4 className="font-bold">Contact Us</h4>
             <a
               className="block w-fit hover:underline"
