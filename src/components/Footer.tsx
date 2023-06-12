@@ -138,7 +138,7 @@ function Footer() {
                 aria-label="Instagram social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-400">
+                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
                   <svg
                     width="29"
                     height="33"
@@ -157,7 +157,7 @@ function Footer() {
                 aria-label="Twitter social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-400">
+                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -176,7 +176,7 @@ function Footer() {
                 aria-label="Facebook social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-400">
+                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -195,7 +195,7 @@ function Footer() {
                 aria-label="Youtube social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-400">
+                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -211,10 +211,10 @@ function Footer() {
               <a
                 href="https://www.tiktok.com"
                 target="_blank"
-                aria-label="Tiktok social link"
+                aria-label="Tik-tok social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-400">
+                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"

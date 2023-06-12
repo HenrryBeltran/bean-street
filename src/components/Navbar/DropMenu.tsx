@@ -71,14 +71,14 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       <a
                         href={link.route}
                         className={`text-3xl font-medium leading-none ${
-                          pathname === link.route ? "text-red-400" : "text-brown-700"
-                        } transition-colors duration-300 target-hover:group-hover:text-red-400`}
+                          pathname === link.route ? "text-red-600/75" : "text-brown-700"
+                        } transition-colors duration-300 target-hover:group-hover:text-red-600/75`}
                         aria-label={`${link.name} link`}
                       >
                         {link.name}
                       </a>
                       <span
-                        className={`inline-block h-2 w-2 rounded-full bg-red-400 ${
+                        className={`inline-block h-2 w-2 rounded-full bg-red-600/75 ${
                           pathname === link.route ? "scale-100" : "scale-0"
                         } transition-transform duration-300 target-hover:group-hover:scale-100`}
                       ></span>
@@ -98,7 +98,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Instagram social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
+                      <span className="fill-current transition-colors duration-200 target-hover:group-hover:text-red-600/75">
                         <svg
                           width="29"
                           height="33"
@@ -117,7 +117,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Twitter social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
+                      <span className="fill-current transition-colors duration-200 target-hover:group-hover:text-red-600/75">
                         <svg
                           width="33"
                           height="33"
@@ -136,7 +136,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Facebook social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
+                      <span className="fill-current transition-colors duration-200 target-hover:group-hover:text-red-600/75">
                         <svg
                           width="33"
                           height="33"
@@ -155,7 +155,7 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                       aria-label="Youtube social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
+                      <span className="fill-current transition-colors duration-200 target-hover:group-hover:text-red-600/75">
                         <svg
                           width="33"
                           height="33"
@@ -171,10 +171,10 @@ const DropMenu = React.forwardRef<HTMLDivElement, Props>(({ isOpen }, ref) => {
                     <a
                       href="https://www.tiktok.com"
                       target="_blank"
-                      aria-label="Tiktok social link"
+                      aria-label="Tik-tok social link"
                       className="group"
                     >
-                      <span className="transtion-colors fill-current duration-200 target-hover:group-hover:text-red-400">
+                      <span className="fill-current transition-colors duration-200 target-hover:group-hover:text-red-600/75">
                         <svg
                           width="33"
                           height="33"

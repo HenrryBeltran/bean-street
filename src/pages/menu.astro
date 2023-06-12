@@ -1,0 +1,169 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar/Navbar";
+import Banner from "../components/Banner";
+import Footer from "../components/Footer";
+
+const url = import.meta.env.WEBSITE_URL;
+
+const menu = [
+  {
+    section: "Hot Coffees",
+    list: [
+      { name: "Americano", tip: "Espresso and hot water" },
+      { name: "Cappuccino", tip: "Espresso, steamed milk, and frothed milk" },
+      { name: "Espresso Coffee", tip: "Finely ground beans brewed under high pressure" },
+      { name: "Latte Coffee", tip: "Espresso, steamed milk, and a layer of froth" },
+      { name: "Latte Macchiato Coffee", tip: "Steamed milk and espresso" },
+    ],
+  },
+  {
+    section: "Hot Drinks",
+    list: [
+      {
+        name: "Hot Chocolate",
+        tip: "Steamed milk and chocolate syrup, with marshmallows",
+      },
+    ],
+  },
+  {
+    section: "Cold Coffees",
+    list: [
+      { name: "Cold Brew Coffee", tip: "Coffee brewed with cold water" },
+      { name: "Ice Latte", tip: "Latte served over ice" },
+      { name: "Frappe", tip: "Iced coffee blended with milk and ice" },
+      { name: "Matcha Latte", tip: "Matcha powder and steamed milk" },
+    ],
+  },
+  {
+    section: "Sandwiches & More",
+    list: [
+      {
+        name: "Chicken Wrap",
+        tip: "Chicken, lettuce, and dressing wrapped in a tortilla",
+      },
+      { name: "Ham Sandwich", tip: "Sandwich with ham and other fillings" },
+      { name: "Panini Sandwich", tip: "Grilled sandwich with various fillings" },
+    ],
+  },
+  {
+    section: "Pastries",
+    list: [
+      { name: "Choco Chip Cookie", tip: "Cookie with chocolate chips" },
+      { name: "Choco Chip Muffin", tip: "Muffin with chocolate chips" },
+      {
+        name: "Double Chocolate Chip Muffin",
+        tip: "A chocolate muffin with chocolate chips",
+      },
+      {
+        name: "Classic Basque Cheesecake",
+        tip: "Cheesecake with a creamy, custard-like texture",
+      },
+      { name: "Lemon Cake", tip: "Cake with lemon flavoring" },
+    ],
+  },
+];
+---
+
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street - About us"
+  description="Bean Street Coffee Shop was founded by two coffee lovers, Jane and John. They had a passion for coffee, but found it difficult to find a coffee shop that offered the perfect blend of quality, atmosphere, and service."
+  websiteUrl={`${url}/about-us`}
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <Banner client:load />
+  <main class="w-full">
+    <section class="flex w-full justify-center overflow-hidden bg-beige-200">
+      <div
+        class="flex w-full max-w-[1920px] items-center lg:min-h-[calc(100vh-108px)] lg:justify-center"
+      >
+        <div class="relative flex w-full flex-col items-center md:px-28">
+          <div class="right-0 top-16 py-8 md:absolute md:translate-x-1/2 md:p-0">
+            <img
+              class="md:h-[160px] md:w-[160px] lg:h-[200px] lg:w-[200px]"
+              width="120"
+              height="120"
+              src="/assets/bag-of-coffee-beans.svg"
+              alt="Bag of coffee beans"
+            />
+          </div>
+          <div
+            class="flex w-full flex-col px-6 md:max-w-[800px] md:px-0 md:py-32 lg:max-w-5xl lg:py-32"
+          >
+            <div
+              class="mb-10 flex items-end gap-4 after:h-px after:w-full after:bg-brown-300 after:content-[''] md:mb-12 lg:mb-14"
+            >
+              <h1
+                class="whitespace-nowrap font-serif text-5xl font-black leading-[2.15rem] text-red-600/75 lg:text-6xl lg:leading-[2.75rem]"
+              >
+                Menu
+              </h1>
+            </div>
+            <div
+              class="flex flex-col space-y-8 md:flex-row md:gap-x-16 md:space-y-0 lg:gap-x-24"
+            >
+              <div class="basis-1/2 space-y-8 md:space-y-11 lg:space-y-12">
+                {
+                  menu.slice(0, -2).map(categories => (
+                    <div>
+                      <h2 class="mb-2 text-3xl font-black tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
+                        {categories.section}
+                      </h2>
+                      <ul class="space-y-2 lg:space-y-3">
+                        {categories.list.map(item => (
+                          <li>
+                            <h3 class="font-bold text-brown-800 lg:text-lg">
+                              {item.name}
+                            </h3>
+                            <p class="text-md text-orange-900/80 lg:text-base">
+                              {item.tip}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="basis-1/2 space-y-8 md:space-y-11 lg:space-y-12">
+                {
+                  menu.slice(-2).map(categories => (
+                    <div>
+                      <h2 class="mb-2 text-3xl font-black tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
+                        {categories.section}
+                      </h2>
+                      <ul class="space-y-2 lg:space-y-3">
+                        {categories.list.map(item => (
+                          <li>
+                            <h3 class="font-bold text-brown-800 lg:text-lg">
+                              {item.name}
+                            </h3>
+                            <p class="text-md text-orange-900/80 lg:text-base">
+                              {item.tip}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+          <div class="bottom-16 left-0 py-8 md:absolute md:-translate-x-1/2 md:p-0">
+            <img
+              class="md:h-[160px] md:w-[160px] lg:h-[200px] lg:w-[200px]"
+              width="120"
+              height="120"
+              src="/assets/cup-of-chocolate.svg"
+              alt="Cup of chocolate"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

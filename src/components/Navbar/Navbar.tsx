@@ -36,14 +36,6 @@ function Navbar() {
               <SecondaryButton path="/sign-in" name="Sign in" ariaLabel="Sign in" />
               <PrimaryButton path="/sign-up" name="Sign up" ariaLabel="Sign up" />
             </div>
-
-            <a
-              href="/sign-in"
-              className="whitespace-nowrap text-sm font-medium transition-colors hover:text-brown-500 md:hidden"
-              aria-label="Sign in"
-            >
-              Sign in
-            </a>
             <button
               className="group relative mx-4 flex h-12 w-12 items-center justify-center md:mx-8"
               onClick={() => setIsCartOpen(true)}
