@@ -19,7 +19,9 @@ const url = import.meta.env.WEBSITE_URL;
   <Banner client:load />
   <main class="w-full">
     <section class="flex justify-center">
-      <div class="relative flex w-full flex-col items-center">
+      <div
+        class="relative flex w-full flex-col items-center bg-[url('/assets/images/about-us/about-us-story-blurry.jpg')] bg-cover bg-center"
+      >
         <picture class="w-full">
           <source
             srcset="/assets/images/about-us/about-us-story-large.jpg 1x, /assets/images/about-us/about-us-story-large-2x.jpg 2x"
@@ -34,6 +36,7 @@ const url = import.meta.env.WEBSITE_URL;
             width="430"
             src="/assets/images/about-us/about-us-story-small.jpg"
             srcset="/assets/images/about-us/about-us-story-small.jpg 1x, /assets/images/about-us/about-us-story-small-2x.jpg 2x"
+            loading="lazy"
             alt="About us cover"
           />
         </picture>
@@ -94,6 +97,7 @@ const url = import.meta.env.WEBSITE_URL;
               height="299"
               src="/assets/coffee-pour-over.svg"
               alt="Coffee Pour Over SVG"
+              loading="lazy"
             />
             <img
               class="w-[50px] sm:w-[75px] xl:w-[100px]"
@@ -101,6 +105,7 @@ const url = import.meta.env.WEBSITE_URL;
               height="90"
               src="/assets/coffee-beans.svg"
               alt="Coffee Beans SVG"
+              loading="lazy"
             />
           </div>
         </div>
@@ -131,6 +136,7 @@ const url = import.meta.env.WEBSITE_URL;
               src="/assets/images/our-mission/our-mission-cover-small.jpg"
               srcset="/assets/images/our-mission/our-mission-cover-small.jpg 1x, /assets/images/our-mission/our-mission-cover-small-2x.jpg 2x"
               alt="Customer enjoying a coffee"
+              loading="lazy"
             />
           </picture>
         </div>
