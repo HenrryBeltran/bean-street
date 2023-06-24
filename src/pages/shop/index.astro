@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar/Navbar";
+import Banner from "../../components/Banner";
+import Footer from "../../components/Footer";
+import ShopContainer from "../../components/Shop/ShopContainer";
+
+const url = import.meta.env.WEBSITE_URL;
+---
+
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street - Shop"
+  description="Choose from our wide selection of coffee blends, hot chocolate, and pastries."
+  websiteUrl={`${url}/shop`}
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <Banner client:load />
+  <main class="w-full">
+    <ShopContainer client:load />
+  </main>
+  <Footer />
+</Layout>
