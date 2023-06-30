@@ -4,21 +4,78 @@ import Navbar from "../../components/Navbar/Navbar";
 import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import ShopContainer from "../../components/Shop/ShopContainer";
+import {
+  getColdCoffees,
+  getHotCoffees,
+  getHotDrinks,
+  getMenu,
+  getPastries,
+  getSandwichesMore,
+  isMenu,
+  Menu,
+  Sections,
+} from "../../lib/sanity";
 
-const url = import.meta.env.WEBSITE_URL;
+enum MenuSections {
+  HOT_COFFEES = "hot-coffees",
+  HOT_DRINKS = "hot-drinks",
+  COLD_COFFEES = "cold-coffees",
+  SANDWICHES_AND_MORE = "sandwiches",
+  PASTRIES = "pastries",
+  ALL = "none",
+}
+
+const search = Astro.url.searchParams.get("type")! || "none";
+
+let promise;
+switch (search) {
+  case MenuSections.HOT_COFFEES:
+    promise = getHotCoffees();
+    break;
+  case MenuSections.HOT_DRINKS:
+    promise = getHotDrinks();
+    break;
+  case MenuSections.COLD_COFFEES:
+    promise = getColdCoffees();
+    break;
+  case MenuSections.SANDWICHES_AND_MORE:
+    promise = getSandwichesMore();
+    break;
+  case MenuSections.PASTRIES:
+    promise = getPastries();
+    break;
+  case MenuSections.ALL:
+    promise = getMenu();
+    break;
+}
+
+const data: Menu | Sections = await promise;
+
+let sortedData: Menu | Sections;
+if (isMenu(data)) {
+  const { hotCoffees, hotDrinks, coldCoffees, sandwichesAndMore, pastries } = data;
+  sortedData = {
+    hotCoffees,
+    hotDrinks,
+    coldCoffees,
+    sandwichesAndMore,
+    pastries,
+  };
+} else {
+  sortedData = data;
+}
 ---
 
 <Layout
   generator="Bean Street v1.0.0"
   title="Bean Street - Shop"
   description="Choose from our wide selection of coffee blends, hot chocolate, and pastries."
-  websiteUrl={`${url}/shop`}
   altImage="Bean Street Logo"
 >
   <Navbar client:load />
   <Banner client:load />
-  <main class="w-full">
-    <ShopContainer client:load />
+  <main class="flex w-full justify-center">
+    <ShopContainer client:load data={sortedData} searchType={search} />
   </main>
   <Footer />
 </Layout>

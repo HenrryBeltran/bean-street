@@ -8,15 +8,11 @@ const FilterLinks: FC<Props> = ({ typeParam }) => {
   const idleLink = "hover:text-brown-800 hover:underline";
   const activeLink = "text-brown-800 underline";
 
-  if (!typeParam) {
-    return <div className="flex w-full gap-6 text-sm text-brown-600"></div>;
-  }
-
   return (
-    <div className="flex w-full gap-6 text-sm text-brown-600">
-      <ul className="basis-1/2 space-y-2">
+    <div className="flex w-full gap-6 text-sm text-brown-600 sm:w-[150px] sm:flex-col lg:text-base">
+      <ul className="basis-1/2 space-y-2 sm:basis-0">
         <li>
-          <h3 className="font-bold text-brown-800">Drinks</h3>
+          <h3 className="font-bold text-brown-700">Drinks</h3>
         </li>
         <li>
           <a
@@ -43,9 +39,9 @@ const FilterLinks: FC<Props> = ({ typeParam }) => {
           </a>
         </li>
       </ul>
-      <ul className="basis-1/2 space-y-2">
+      <ul className="basis-1/2 space-y-2 sm:basis-0">
         <li>
-          <h3 className="font-bold text-brown-800">Food</h3>
+          <h3 className="font-bold text-brown-700">Food</h3>
         </li>
         <li>
           <a

@@ -14,7 +14,7 @@ function HeroSection() {
             media="(min-width:640px)"
           />
           <img
-            className="h-80 w-full bg-brown-500 object-cover sm:h-full"
+            className="h-80 w-full bg-brown-600 object-cover sm:h-full"
             src="/assets/images/bean-street-hero-small.jpg"
             srcSet="/assets/images/hero/bean-street-hero-small.jpg 1x, /assets/images/hero/bean-street-hero-small-2x.jpg 2x"
             alt="Bean Street Coffee Shop"

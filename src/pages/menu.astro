@@ -4,8 +4,6 @@ import Navbar from "../components/Navbar/Navbar";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 
-const url = import.meta.env.WEBSITE_URL;
-
 const menu = [
   {
     section: "Hot Coffees",
@@ -69,7 +67,6 @@ const menu = [
   generator="Bean Street v1.0.0"
   title="Bean Street - Menu"
   description="At Bean Street, we offer a wide range of coffee blends, as well as hot chocolate, and pastries. All of our products are made with the freshest and highest quality ingredients."
-  websiteUrl={`${url}/menu`}
   altImage="Bean Street Logo"
 >
   <Navbar client:load />

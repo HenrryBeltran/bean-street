@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { useScrollPosition } from "../../utils/useScrollPosition";
 import Cart from "../Cart/Cart";
 import PrimaryButton from "../PrimaryButton";
 import SecondaryButton from "../SecondaryButton";
@@ -51,7 +51,7 @@ function Navbar() {
                 className="mb-1"
               >
                 <path
-                  className="fill-brown-700 transition-colors target-hover:group-hover:fill-brown-500"
+                  className="fill-brown-700 transition-colors [@media(hover:hover)]:group-hover:fill-brown-500"
                   d="M2 15.7022L6.19546 26.8901L6.43878 27.539H7.13179H7.41148H23.9136H24.1933H24.8863L25.1296 26.8901L29.3251 15.7022L27.4524 15L23.5003 25.539H7.82479L3.87266 15L2 15.7022Z"
                 />
               </svg>

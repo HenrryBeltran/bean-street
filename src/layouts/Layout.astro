@@ -5,11 +5,19 @@ interface Props {
   generator: string;
   title: string;
   description: string;
-  websiteUrl: string;
+  websiteUrl?: string;
   altImage: string;
 }
 
-const { generator, title, description, websiteUrl, altImage } = Astro.props as Props;
+const url = Astro.url.href;
+
+const {
+  generator,
+  title,
+  description,
+  websiteUrl = url,
+  altImage,
+} = Astro.props as Props;
 ---
 
 <html lang="en">

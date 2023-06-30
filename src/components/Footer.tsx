@@ -88,7 +88,7 @@ function Footer() {
           </ul>
           <ul className="space-y-2 text-brown-600">
             <li>
-              <span className="font-bold text-brown-800">Policy</span>
+              <span className="font-bold text-brown-800">Legal</span>
             </li>
             <li>
               <a
@@ -138,7 +138,7 @@ function Footer() {
                 aria-label="Instagram social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
+                <span className="fill-current transition-colors duration-200 [@media(hover:hover)]:hover:text-red-600/75">
                   <svg
                     width="29"
                     height="33"
@@ -157,7 +157,7 @@ function Footer() {
                 aria-label="Twitter social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
+                <span className="fill-current transition-colors duration-200 [@media(hover:hover)]:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -176,7 +176,7 @@ function Footer() {
                 aria-label="Facebook social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
+                <span className="fill-current transition-colors duration-200 [@media(hover:hover)]:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -195,7 +195,7 @@ function Footer() {
                 aria-label="Youtube social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
+                <span className="fill-current transition-colors duration-200 [@media(hover:hover)]:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"
@@ -214,7 +214,7 @@ function Footer() {
                 aria-label="Tik-tok social link"
                 className="group"
               >
-                <span className="fill-current transition-colors duration-200 target-hover:hover:text-red-600/75">
+                <span className="fill-current transition-colors duration-200 [@media(hover:hover)]:hover:text-red-600/75">
                   <svg
                     width="33"
                     height="33"

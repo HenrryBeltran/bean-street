@@ -3,15 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import PrimaryButton from "../components/PrimaryButton";
-
-const url = import.meta.env.WEBSITE_URL;
 ---
 
 <Layout
   generator="Bean Street v1.0.0"
   title="Bean Street - 404 Page"
   description="We're sorry, it looks like the page you're looking for isn't in our system."
-  websiteUrl={url}
   altImage="Bean Street Logo"
 >
   <Navbar client:load />

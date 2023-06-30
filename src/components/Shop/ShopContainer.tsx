@@ -1,44 +1,63 @@
-import { useEffect, useState } from "react";
-import ShopList from "./ShopList";
+import type { FC } from "react";
+import { type Sections, type Menu, isMenu } from "../../lib/sanity";
+import ShopScrollList from "./ShopScrollList";
 import FilterLinks from "./FilterLinks";
-import { getMenu, type Menu } from "../../lib/sanity";
+import ShopMainTitle from "./ShopMainTitle";
 
-const ShopContainer = () => {
-  const [typeParam, setTypeParam] = useState<string | null>(null);
-  const [menu, setMenu] = useState<Menu[] | null>(null);
+interface Props {
+  data: Menu | Sections;
+  searchType: string;
+}
 
-  useEffect(() => {
-    // Get url query params
-    const keys = window.location.search;
-    const urlParams = new URLSearchParams(keys);
-    setTypeParam(urlParams.get("type") || "none");
+const ShopContainer: FC<Props> = ({ data, searchType }) => {
+  const getSectionsTitles = (array: Sections): string => {
+    return array[0].section.replaceAll("-", " ");
+  };
 
-    // Ask what param type is getting to then, query the exact data I need.
+  const getMainShopTitle = (): string => {
+    if (isMenu(data)) {
+      return "All";
+    }
 
-    // Get Sanity CMS data
-    getMenu().then(data => setMenu(data));
-  }, []);
+    const section: Sections = data;
+    return getSectionsTitles(section);
+  };
 
-  if (!typeParam || !menu) {
-    return (
-      <section className="flex w-full flex-col">
-        <div className="min-h-[152px] w-full p-6">
-          <p>Loading...</p>
-        </div>
-      </section>
-    );
-  }
+  const getCountMenu = () => {
+    if (isMenu(data)) {
+      return Object.values(data).flat().length;
+    }
+
+    return data.length;
+  };
 
   return (
-    <section className="flex w-full flex-col">
-      <div className="min-h-[152px] w-full p-6">
-        <FilterLinks typeParam={typeParam} />
+    <section className="relative w-full max-w-7xl p-6 pb-16 sm:p-0 sm:pb-24 lg:pb-48">
+      <div className="z-10 mb-8 hidden w-full bg-beige-100 sm:sticky sm:top-11 sm:block sm:px-8 sm:pb-2 sm:pt-6 lg:top-16 lg:pb-4 lg:pt-8">
+        <div className="flex items-center gap-6 after:h-px after:w-full after:bg-brown-300 after:content-['']">
+          <ShopMainTitle
+            getMainShopTitle={getMainShopTitle}
+            getCountMenu={getCountMenu}
+          />
+        </div>
       </div>
 
-      <div className="min-h-[calc(100lvh-152px-112px)] px-6 pb-11 pt-4">
-        <ShopList typeParam={typeParam} menu={menu} />
+      <div className="flex w-full flex-col sm:flex-row sm:justify-between sm:gap-x-6 sm:px-8">
+        <div className="min-h-fit w-full sm:sticky sm:top-32 sm:h-fit sm:w-fit lg:top-40">
+          <FilterLinks typeParam={searchType} />
+        </div>
+        <div className="flex items-center gap-6 pt-6 after:h-px after:w-full after:bg-brown-300 after:content-[''] sm:hidden">
+          <ShopMainTitle
+            getMainShopTitle={getMainShopTitle}
+            getCountMenu={getCountMenu}
+          />
+        </div>
+        <div className="min-h-[calc(100lvh-152px-112px)] pt-6 sm:pt-0 md:max-w-5xl">
+          <ShopScrollList menuData={data} getSectionsTitles={getSectionsTitles} />
+        </div>
       </div>
     </section>
   );
 };
+
 export default ShopContainer;

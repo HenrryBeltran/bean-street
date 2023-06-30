@@ -4,15 +4,50 @@ export const client = createClient({
   projectId: "ydwwqgnu",
   dataset: "production",
   useCdn: true,
-  apiVersion: "2023-06-23",
+  apiVersion: "2021-10-21",
 });
 
 export async function getMenu() {
-  const menu = await client.fetch('*[_type == "menu"]');
-  return menu;
+  return await client.fetch(`
+  {
+    'hotCoffees': *[section == 'hot-coffees'] | order(name),
+    'hotDrinks': *[section == 'hot-drinks'] | order(name),
+    'coldCoffees': *[section == 'cold-coffees'] | order(name),
+    'sandwichesAndMore': *[section == 'sandwiches-&-more'] | order(name),
+    'pastries': *[section == 'pastries'] | order(name)
+  }
+`);
+}
+
+export async function getHotCoffees() {
+  return await client.fetch("*[section == 'hot-coffees'] | order(name)");
+}
+
+export async function getHotDrinks() {
+  return await client.fetch("*[section == 'hot-drinks'] | order(name)");
+}
+
+export async function getColdCoffees() {
+  return await client.fetch("*[section == 'cold-coffees'] | order(name)");
+}
+
+export async function getSandwichesMore() {
+  return await client.fetch("*[section == 'sandwiches-&-more'] | order(name)");
+}
+
+export async function getPastries() {
+  return await client.fetch("*[section == 'pastries'] | order(name)");
 }
 
 export type Menu = {
+  hotCoffees: Sections;
+  hotDrinks: Sections;
+  coldCoffees: Sections;
+  sandwichesAndMore: Sections;
+  pastries: Sections;
+};
+
+export type Section = {
   customizeTags: [
     {
       _key: string;
@@ -51,3 +86,9 @@ export type Menu = {
   price: number;
   _createdAt: string;
 };
+
+export type Sections = Array<Section>;
+
+export function isMenu(menu: Menu | Sections): menu is Menu {
+  return (menu as Menu).hotCoffees !== undefined;
+}
