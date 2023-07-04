@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar/Navbar";
+import Banner from "../../components/Banner";
+import CoffeeNav from "../../components/CoffeeOrder/CoffeeNav.astro";
+import OrderContainer from "../../components/CoffeeOrder/OrderContainer.astro";
+import Footer from "../../components/Footer";
+import { Coffee, getMenu, Menu } from "../../lib/sanity";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const menu: Menu = await getMenu();
+  const allItems = Object.values(menu).flat();
+
+  return allItems.map(coffee => {
+    return {
+      params: { id: coffee._id },
+      props: { coffee: coffee },
+    };
+  });
+}
+
+interface Props {
+  coffee: Coffee;
+}
+
+const { coffee }: Props = Astro.props;
+const url = Astro.url.pathname;
+---
+
+<Layout
+  generator="Bean Street v1.0.0"
+  title="Bean Street"
+  description="The coffee shop where you can enjoy the best coffee in town! Our cozy and modern coffee shop is the perfect place to relax and enjoy a cup of coffee with friends or alone."
+  altImage="Bean Street Logo"
+>
+  <Navbar client:load />
+  <Banner client:load />
+  <main class="w-full">
+    <section class="container mx-auto p-6">
+      <CoffeeNav {coffee} {url} />
+      <OrderContainer {coffee} />
+    </section>
+    <Footer />
+  </main>
+</Layout>

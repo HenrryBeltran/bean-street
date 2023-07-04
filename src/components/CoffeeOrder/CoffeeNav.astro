@@ -1,0 +1,38 @@
+---
+import type { Coffee } from "../../lib/sanity";
+
+interface Props {
+  coffee: Coffee;
+  url: string;
+}
+
+const { coffee, url }: Props = Astro.props;
+---
+
+<nav>
+  <ul class="global-select-none flex text-sm capitalize text-brown-600">
+    <li>
+      <a
+        href="/shop"
+        class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brown-800 after:transition-all after:content-[''] hover:text-brown-800 after:hover:w-full"
+        >Shop</a
+      >
+      <span>&bullet;&nbsp;</span>
+    </li>
+    <li>
+      <a
+        href={`/shop?type=${coffee.section.replaceAll("&", "and")}`}
+        class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brown-800 after:transition-all after:content-[''] hover:text-brown-800 after:hover:w-full"
+        >{coffee.section.replaceAll("-", " ")}</a
+      >
+      <span> &bullet;&nbsp;</span>
+    </li>
+    <li>
+      <a
+        href={url}
+        class="relative font-medium text-brown-800 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brown-800 after:transition-all after:content-[''] hover:text-brown-800 after:hover:w-full"
+        >{coffee.name}</a
+      >
+    </li>
+  </ul>
+</nav>

@@ -3,63 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar/Navbar";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
+import { Menu, getMenu, getSectionsTitles } from "../lib/sanity";
+
+const data: Menu = await getMenu();
 
 const menu = [
-  {
-    section: "Hot Coffees",
-    list: [
-      { name: "Americano", tip: "Espresso and hot water" },
-      { name: "Cappuccino", tip: "Espresso, steamed milk, and frothed milk" },
-      { name: "Espresso Coffee", tip: "Finely ground beans brewed under high pressure" },
-      { name: "Latte Coffee", tip: "Espresso, steamed milk, and a layer of froth" },
-      { name: "Latte Macchiato Coffee", tip: "Steamed milk and espresso" },
-    ],
-  },
-  {
-    section: "Hot Drinks",
-    list: [
-      {
-        name: "Hot Chocolate",
-        tip: "Steamed milk and chocolate syrup, with marshmallows",
-      },
-    ],
-  },
-  {
-    section: "Cold Coffees",
-    list: [
-      { name: "Cold Brew Coffee", tip: "Coffee brewed with cold water" },
-      { name: "Ice Latte", tip: "Latte served over ice" },
-      { name: "Frappe", tip: "Iced coffee blended with milk and ice" },
-      { name: "Matcha Latte", tip: "Matcha powder and steamed milk" },
-    ],
-  },
-  {
-    section: "Sandwiches & More",
-    list: [
-      {
-        name: "Chicken Wrap",
-        tip: "Chicken, lettuce, and dressing wrapped in a tortilla",
-      },
-      { name: "Ham Sandwich", tip: "Sandwich with ham and other fillings" },
-      { name: "Panini Sandwich", tip: "Grilled sandwich with various fillings" },
-    ],
-  },
-  {
-    section: "Pastries",
-    list: [
-      { name: "Choco Chip Cookie", tip: "Cookie with chocolate chips" },
-      { name: "Choco Chip Muffin", tip: "Muffin with chocolate chips" },
-      {
-        name: "Double Chocolate Chip Muffin",
-        tip: "A chocolate muffin with chocolate chips",
-      },
-      {
-        name: "Classic Basque Cheesecake",
-        tip: "Cheesecake with a creamy, custard-like texture",
-      },
-      { name: "Lemon Cake", tip: "Cake with lemon flavoring" },
-    ],
-  },
+  data.hotCoffees,
+  data.hotDrinks,
+  data.coldCoffees,
+  data.sandwichesAndMore,
+  data.pastries,
 ];
 ---
 
@@ -103,19 +56,19 @@ const menu = [
             >
               <div class="basis-1/2 space-y-8 md:space-y-11 lg:space-y-12">
                 {
-                  menu.slice(0, -2).map(categories => (
+                  menu.slice(0, -2).map(sections => (
                     <div>
-                      <h2 class="mb-2 text-3xl font-black tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
-                        {categories.section}
+                      <h2 class="mb-2 text-3xl font-black capitalize tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
+                        {getSectionsTitles(sections)}
                       </h2>
                       <ul class="space-y-2 lg:space-y-3">
-                        {categories.list.map(item => (
+                        {sections.map(coffees => (
                           <li>
                             <h3 class="font-bold text-brown-800 lg:text-lg">
-                              {item.name}
+                              {coffees.name}
                             </h3>
                             <p class="text-md text-orange-900/80 lg:text-base">
-                              {item.tip}
+                              {coffees.tip}
                             </p>
                           </li>
                         ))}
@@ -126,19 +79,19 @@ const menu = [
               </div>
               <div class="basis-1/2 space-y-8 md:space-y-11 lg:space-y-12">
                 {
-                  menu.slice(-2).map(categories => (
+                  menu.slice(-2).map(sections => (
                     <div>
-                      <h2 class="mb-2 text-3xl font-black tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
-                        {categories.section}
+                      <h2 class="mb-2 text-3xl font-black capitalize tracking-tight text-brown-700 lg:mb-4 lg:text-4xl">
+                        {getSectionsTitles(sections)}
                       </h2>
                       <ul class="space-y-2 lg:space-y-3">
-                        {categories.list.map(item => (
+                        {sections.map(coffees => (
                           <li>
                             <h3 class="font-bold text-brown-800 lg:text-lg">
-                              {item.name}
+                              {coffees.name}
                             </h3>
                             <p class="text-md text-orange-900/80 lg:text-base">
-                              {item.tip}
+                              {coffees.tip}
                             </p>
                           </li>
                         ))}

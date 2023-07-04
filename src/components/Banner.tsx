@@ -29,7 +29,7 @@ const Banner = () => {
               <a
                 href="/shop"
                 aria-label="Go to shop"
-                className="font-semibold group-hover:underline"
+                className="global-select-none font-semibold group-hover:underline"
               >
                 Shop Now
               </a>

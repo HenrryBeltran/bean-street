@@ -7,7 +7,7 @@ export const client = createClient({
   apiVersion: "2021-10-21",
 });
 
-export async function getMenu() {
+export const getMenu = async (): Promise<Menu> => {
   return await client.fetch(`
   {
     'hotCoffees': *[section == 'hot-coffees'] | order(name),
@@ -17,27 +17,31 @@ export async function getMenu() {
     'pastries': *[section == 'pastries'] | order(name)
   }
 `);
-}
+};
 
-export async function getHotCoffees() {
+export const getHotCoffees = async (): Promise<Sections> => {
   return await client.fetch("*[section == 'hot-coffees'] | order(name)");
-}
+};
 
-export async function getHotDrinks() {
+export const getHotDrinks = async (): Promise<Sections> => {
   return await client.fetch("*[section == 'hot-drinks'] | order(name)");
-}
+};
 
-export async function getColdCoffees() {
+export const getColdCoffees = async (): Promise<Sections> => {
   return await client.fetch("*[section == 'cold-coffees'] | order(name)");
-}
+};
 
-export async function getSandwichesMore() {
+export const getSandwichesMore = async (): Promise<Sections> => {
   return await client.fetch("*[section == 'sandwiches-&-more'] | order(name)");
-}
+};
 
-export async function getPastries() {
+export const getPastries = async (): Promise<Sections> => {
   return await client.fetch("*[section == 'pastries'] | order(name)");
-}
+};
+
+export const getCoffeeById = async (id: string): Promise<Coffee> => {
+  return await client.fetch(`*[_id == ${id}]`);
+};
 
 export type Menu = {
   hotCoffees: Sections;
@@ -47,27 +51,13 @@ export type Menu = {
   pastries: Sections;
 };
 
-export type Section = {
-  customizeTags: [
-    {
-      _key: string;
-      title: string;
-      value: string;
-      _type: string;
-    },
-    {
-      title: string;
-      value: string;
-      _type: string;
-      _key: string;
-    },
-    {
-      _type: string;
-      _key: string;
-      title: string;
-      value: string;
-    }
-  ];
+export type Coffee = {
+  customizeTags: {
+    _key: string;
+    title: string;
+    value: string;
+    _type: string;
+  }[];
   _rev: string;
   description: string;
   section: string;
@@ -87,8 +77,21 @@ export type Section = {
   _createdAt: string;
 };
 
-export type Sections = Array<Section>;
+export type Sections = Array<Coffee>;
 
 export function isMenu(menu: Menu | Sections): menu is Menu {
   return (menu as Menu).hotCoffees !== undefined;
+}
+
+export const getSectionsTitles = (array: Sections): string => {
+  return array[0].section.replaceAll("-", " ");
+};
+
+export enum MenuSections {
+  HOT_COFFEES = "hot-coffees",
+  HOT_DRINKS = "hot-drinks",
+  COLD_COFFEES = "cold-coffees",
+  SANDWICHES_AND_MORE = "sandwiches-and-more",
+  PASTRIES = "pastries",
+  ALL = "none",
 }

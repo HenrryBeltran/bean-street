@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { type Sections, type Menu, isMenu } from "../../lib/sanity";
+import { type Sections, type Menu, isMenu, getSectionsTitles } from "../../lib/sanity";
 import ShopScrollList from "./ShopScrollList";
 import FilterLinks from "./FilterLinks";
 import ShopMainTitle from "./ShopMainTitle";
@@ -10,10 +10,6 @@ interface Props {
 }
 
 const ShopContainer: FC<Props> = ({ data, searchType }) => {
-  const getSectionsTitles = (array: Sections): string => {
-    return array[0].section.replaceAll("-", " ");
-  };
-
   const getMainShopTitle = (): string => {
     if (isMenu(data)) {
       return "All";

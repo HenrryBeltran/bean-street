@@ -12,18 +12,8 @@ import {
   getPastries,
   getSandwichesMore,
   isMenu,
-  Menu,
-  Sections,
+  MenuSections,
 } from "../../lib/sanity";
-
-enum MenuSections {
-  HOT_COFFEES = "hot-coffees",
-  HOT_DRINKS = "hot-drinks",
-  COLD_COFFEES = "cold-coffees",
-  SANDWICHES_AND_MORE = "sandwiches",
-  PASTRIES = "pastries",
-  ALL = "none",
-}
 
 const search = Astro.url.searchParams.get("type")! || "none";
 
@@ -47,13 +37,17 @@ switch (search) {
   case MenuSections.ALL:
     promise = getMenu();
     break;
+  default:
+    promise = getMenu();
+    break;
 }
 
-const data: Menu | Sections = await promise;
+const data = await promise;
 
-let sortedData: Menu | Sections;
+let sortedData;
 if (isMenu(data)) {
-  const { hotCoffees, hotDrinks, coldCoffees, sandwichesAndMore, pastries } = data;
+  const { hotCoffees, hotDrinks, coldCoffees, sandwichesAndMore, pastries } =
+    data;
   sortedData = {
     hotCoffees,
     hotDrinks,

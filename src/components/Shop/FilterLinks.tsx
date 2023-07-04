@@ -5,64 +5,63 @@ interface Props {
 }
 
 const FilterLinks: FC<Props> = ({ typeParam }) => {
-  const idleLink = "hover:text-brown-800 hover:underline";
-  const activeLink = "text-brown-800 underline";
+  const typeLink = (type: string) => {
+    return (
+      <a
+        href={`/shop?type=${type.replaceAll("&", "and")}`}
+        className={
+          typeParam === type
+            ? "global-select-none group font-semibold text-brown-700"
+            : "global-select-none group transition-all duration-300 hover:font-semibold hover:text-brown-700"
+        }
+      >
+        <span className="capitalize">
+          {type.replaceAll("-", " ")}
+          {bullet(type)}
+        </span>
+      </a>
+    );
+  };
+
+  const bullet = (type: string) => (
+    <span
+      className={
+        typeParam === type
+          ? "ml-1 inline-block scale-125"
+          : "ml-1 inline-block scale-0 transition-transform duration-300 group-hover:scale-125"
+      }
+    >
+      &bull;
+    </span>
+  );
 
   return (
-    <div className="flex w-full gap-6 text-sm text-brown-600 sm:w-[150px] sm:flex-col lg:text-base">
+    <div className="flex w-full gap-6 text-sm text-brown-600 sm:w-[120px] sm:flex-col lg:w-[150px] lg:text-base">
       <ul className="basis-1/2 space-y-2 sm:basis-0">
         <li>
-          <h3 className="font-bold text-brown-700">Drinks</h3>
+          <h3 className="font-bold text-brown-800">Drinks</h3>
         </li>
-        <li>
-          <a
-            href="/shop?type=hot-coffees"
-            className={typeParam === "hot-coffees" ? activeLink : idleLink}
-          >
-            Hot Coffees
-          </a>
-        </li>
-        <li>
-          <a
-            href="/shop?type=hot-drinks"
-            className={typeParam === "hot-drinks" ? activeLink : idleLink}
-          >
-            Hot Drinks
-          </a>
-        </li>
-        <li>
-          <a
-            href="/shop?type=cold-coffees"
-            className={typeParam === "cold-coffees" ? activeLink : idleLink}
-          >
-            Cold Coffees
-          </a>
-        </li>
+        <li>{typeLink("hot-coffees")}</li>
+        <li>{typeLink("hot-drinks")}</li>
+        <li>{typeLink("cold-coffees")}</li>
       </ul>
       <ul className="basis-1/2 space-y-2 sm:basis-0">
         <li>
-          <h3 className="font-bold text-brown-700">Food</h3>
+          <h3 className="font-bold text-brown-800">Food</h3>
         </li>
-        <li>
-          <a
-            href="/shop?type=sandwiches"
-            className={typeParam === "sandwiches" ? activeLink : idleLink}
-          >
-            Sandwiches & more
-          </a>
-        </li>
-        <li>
-          <a
-            href="/shop?type=pastries"
-            className={typeParam === "pastries" ? activeLink : idleLink}
-          >
-            Pastries
-          </a>
-        </li>
+        <li>{typeLink("sandwiches-&-more")}</li>
+        <li>{typeLink("pastries")}</li>
         {typeParam !== "none" && (
           <li>
-            <a href="/shop" className="font-semibold text-brown-700 underline">
-              Clear filter
+            <a
+              href="/shop"
+              className="global-select-none group flex items-center font-medium text-red-600/75 transition-all duration-300 hover:font-bold hover:text-red-700"
+            >
+              Clear filter{" "}
+              <div className="relative ml-1 h-3 w-3 transition-transform duration-500 group-hover:rotate-180">
+                <span className="absolute left-0 top-1/2 block h-0.5 w-full -translate-y-1/2 rotate-45 bg-[#e05654] group-hover:bg-red-700"></span>
+                <span className="absolute left-0 top-1/2 block h-0.5 w-full -translate-y-1/2 rotate-[-45deg] bg-[#e05654] group-hover:bg-red-700"></span>
+              </div>
             </a>
           </li>
         )}
