@@ -10,6 +10,7 @@ const QuantitySelector: FC<Props> = ({ quantity, setQuantity }) => {
     <div className="flex h-12 items-center border-b border-b-brown-700">
       <div className="flex w-full justify-between px-1 text-brown-700">
         <button
+          type="button"
           className="global-select-none h-12 w-12 rounded-full text-2xl hover:bg-beige-200"
           onClick={() => {
             if (quantity > 1) {
@@ -21,6 +22,7 @@ const QuantitySelector: FC<Props> = ({ quantity, setQuantity }) => {
         </button>
         <span className="font-medium">{quantity}</span>
         <button
+          type="button"
           className="global-select-none h-12 w-12 rounded-full text-2xl hover:bg-beige-200"
           onClick={() => {
             setQuantity(prev => prev + 1);

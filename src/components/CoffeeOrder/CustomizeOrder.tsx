@@ -60,7 +60,7 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
           array={[
             "none",
             "whole milk",
-            "steamed milk",
+            "nonfat milk",
             "coconut milk",
             "oat milk",
           ]}
@@ -103,7 +103,12 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
       <span className="text-2xl font-bold text-brown-700">
         $ {totalPrice.toFixed(2)}
       </span>
-      <form onSubmit={() => {}} className="space-y-12">
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+        }}
+        className="space-y-12"
+      >
         {order}
         <button
           type="submit"
