@@ -25,7 +25,7 @@ const ListBoxForm: FC<Props> = ({ state, setState, array, isMilk = false }) => {
           </span>
         </Listbox.Button>
         <Transition
-          className="absolute top-[110%] z-10"
+          className="absolute top-[110%] z-20"
           enter="transition duration-100 ease-out"
           enterFrom="transform scale-95 opacity-0"
           enterTo="transform scale-100 opacity-100"
