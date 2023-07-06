@@ -18,11 +18,11 @@ function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-12 max-w-[1728px] items-center bg-beige-100 md:h-16">
-        <div className="global-select-none basis-1/3 md:hidden">
+        <div className="basis-1/3 tap-highlight-transparent md:hidden">
           <NavMenuButton />
         </div>
 
-        <div className="global-select-none mx-auto md:basis-1/3">
+        <div className="mx-auto tap-highlight-transparent md:basis-1/3">
           <div className="group flex w-fit items-center justify-center">
             <BeanStreet />
           </div>
@@ -30,11 +30,19 @@ function Navbar() {
 
         <NavLinks />
 
-        <div className="global-select-none basis-1/3">
+        <div className="basis-1/3 tap-highlight-transparent">
           <div className="flex items-center justify-between text-brown-700 before:w-1/3 before:content-['']">
             <div className="hidden md:flex md:gap-x-5">
-              <SecondaryButton path="/sign-in" name="Sign in" ariaLabel="Sign in" />
-              <PrimaryButton path="/sign-up" name="Sign up" ariaLabel="Sign up" />
+              <SecondaryButton
+                path="/sign-in"
+                name="Sign in"
+                ariaLabel="Sign in"
+              />
+              <PrimaryButton
+                path="/sign-up"
+                name="Sign up"
+                ariaLabel="Sign up"
+              />
             </div>
             <button
               className="group relative mx-4 flex h-12 w-12 items-center justify-center md:mx-8"

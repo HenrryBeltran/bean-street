@@ -1,8 +1,8 @@
-import { useState, type FC, useEffect, useRef } from "react";
+import { useEffect, useState, type FC } from "react";
 import { MenuSections, type Coffee } from "../../lib/sanity";
-import RadioButtonSizeCup from "./RadioButtonSizeCup";
-import QuantitySelector from "./QuantitySelector";
 import ListBoxForm from "./ListBoxForm";
+import QuantitySelector from "./QuantitySelector";
+import RadioButtonSizeCup from "./RadioButtonSizeCup";
 
 const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
   const [quantity, setQuantity] = useState(1);
@@ -61,6 +61,7 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
             "none",
             "whole milk",
             "nonfat milk",
+            "almond milk",
             "coconut milk",
             "oat milk",
           ]}
@@ -112,7 +113,7 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
         {order}
         <button
           type="submit"
-          className="global-select-none group relative flex w-full items-center justify-center overflow-hidden whitespace-nowrap border-2 border-brown-700 bg-brown-700 py-4 font-medium text-beige-100"
+          className="group relative flex w-full items-center justify-center overflow-hidden whitespace-nowrap border-2 border-brown-700 bg-brown-700 py-4 font-medium text-beige-100 tap-highlight-transparent"
         >
           <span className="z-10 text-xl transition group-hover:text-brown-800">
             Add to cart

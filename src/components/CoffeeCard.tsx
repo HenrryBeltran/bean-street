@@ -13,51 +13,60 @@ const CoffeeCard: FC<Props> = ({ coffee }) => {
     <div className="mb-4">
       <a
         href={coffeeLink}
-        className="global-select-none block h-fit w-fit overflow-hidden"
+        className="flex aspect-square w-full items-center justify-center overflow-hidden bg-rose-500/30 tap-highlight-transparent"
       >
-        <picture>
+        <picture className="w-full">
           <source
             srcSet={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
               .replace("image-", "")
-              .replace("-jpg", ".jpg")}?h=560&dpr=1 1x,
+              .replace("-jpg", ".jpg")}?h=360&dpr=1=center 1x,
                 https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
                   .replace("image-", "")
-                  .replace("-jpg", ".jpg")}?h=560&dpr=2 2x`}
-            media="(min-width:1280px)"
+                  .replace("-jpg", ".jpg")}?h=360&dpr=2=center 2x`}
+            media="(min-width:768px)"
           />
           <source
             srcSet={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
               .replace("image-", "")
-              .replace("-jpg", ".jpg")}?h=420&dpr=1 1x,
+              .replace("-jpg", ".jpg")}?h=280&dpr=1=center 1x,
                 https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
                   .replace("image-", "")
-                  .replace("-jpg", ".jpg")}?h=420&dpr=2 2x`}
-            media="(min-width:720px)"
+                  .replace("-jpg", ".jpg")}?h=280&dpr=2=center 2x`}
+            media="(min-width:640px)"
           />
           <source
             srcSet={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
               .replace("image-", "")
-              .replace("-jpg", ".jpg")}?h=300&dpr=1 1x,
+              .replace("-jpg", ".jpg")}?h=220&dpr=1=center 1x,
                 https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
                   .replace("image-", "")
-                  .replace("-jpg", ".jpg")}?h=300&dpr=2 2x`}
+                  .replace("-jpg", ".jpg")}?h=220&dpr=2=center 2x`}
+            media="(min-width:540px)"
+          />
+          <source
+            srcSet={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
+              .replace("image-", "")
+              .replace("-jpg", ".jpg")}?h=180&dpr=1=center 1x,
+                https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
+                  .replace("image-", "")
+                  .replace("-jpg", ".jpg")}?h=180&dpr=2=center 2x`}
             media="(min-width:400px)"
           />
           <source
             srcSet={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
               .replace("image-", "")
-              .replace("-jpg", ".jpg")}?h=200&dpr=1 1x,
+              .replace("-jpg", ".jpg")}?h=120&dpr=1=center 1x,
                 https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
                   .replace("image-", "")
-                  .replace("-jpg", ".jpg")}?h=200&dpr=2 2x`}
+                  .replace("-jpg", ".jpg")}?h=120&dpr=2=center 2x`}
           />
           <img
-            width={200}
-            height={200}
-            className="aspect-square w-full object-cover transition-transform duration-700 hover:scale-105"
+            width={120}
+            height={120}
+            className="w-full transition-transform duration-700 hover:scale-105"
             src={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
               .replace("image-", "")
-              .replace("-jpg", ".jpg")}?h=200&dpr=1`}
+              .replace("-jpg", ".jpg")}?h=120&dpr=1`}
             alt={coffee.name}
             style={{
               background: `url('https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
@@ -65,6 +74,7 @@ const CoffeeCard: FC<Props> = ({ coffee }) => {
                 .replace("-jpg", ".jpg")}?h=32&blur=200')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
             loading="lazy"
           />

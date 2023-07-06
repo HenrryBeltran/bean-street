@@ -1,4 +1,4 @@
-import { Listbox } from "@headlessui/react";
+import { Listbox, Transition } from "@headlessui/react";
 import type { Dispatch, FC, SetStateAction } from "react";
 
 interface Props {
@@ -9,44 +9,63 @@ interface Props {
 }
 
 const ListBoxForm: FC<Props> = ({ state, setState, array, isMilk = false }) => {
-  if (state !== "none" && isMilk) {
-    array = array.slice(1);
-  }
+  // const hasNone = array.includes("none");
+
+  // if (state !== "none" && isMilk) {
+  //   array = array.slice(1);
+  // }
 
   return (
     <Listbox value={state} onChange={setState}>
       <div className="relative w-full">
-        <Listbox.Button className="global-select-none flex h-12 w-full items-center justify-between border-b border-b-brown-700 px-6">
+        <Listbox.Button className="group flex h-12 w-full items-center justify-between border-b border-b-brown-700 px-6 tap-highlight-transparent ui-open:bg-beige-200/70">
           <span className="font-medium capitalize text-brown-700">{state}</span>
-          <span className="text-brown-700">{downArrow}</span>
+          <span className="inline-block text-brown-700 transition-transform duration-200 ui-open:rotate-180">
+            {downArrow}
+          </span>
         </Listbox.Button>
-        <Listbox.Options className="absolute top-[110%] z-10 w-full border border-beige-200 bg-beige-100 py-1 shadow-xl">
-          {array.map((item, index) => (
-            <Listbox.Option key={index} value={item}>
-              {({ selected }) => (
-                <div
-                  className={`cursor-pointer px-6 py-1.5 capitalize hover:bg-beige-200 ${
-                    selected ? "bg-beige-200" : ""
-                  }`}
-                >
-                  <span
-                    className={
-                      selected
-                        ? "font-semibold text-brown-800"
-                        : "font-ligth text-brown-600"
-                    }
-                  >
-                    {item}
-                  </span>
-                </div>
-              )}
-            </Listbox.Option>
-          ))}
-        </Listbox.Options>
+        <Transition
+          className="absolute top-[110%] z-10"
+          enter="transition duration-100 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-75 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
+        >
+          <Listbox.Options className="w-fit divide-y divide-brown-200/80 rounded-md border border-beige-200 bg-beige-100/50 py-1 shadow-3xl shadow-brown-700/40 backdrop-blur-lg">
+            {array.map((item, index) => (
+              <Listbox.Option
+                key={index}
+                value={item}
+                className="flex cursor-pointer gap-x-3 py-3 pl-4 pr-6 capitalize"
+              >
+                <span className="text-transparent ui-selected:text-brown-700">
+                  {checkMark}
+                </span>
+                <span className="font-light text-brown-600 ui-selected:font-semibold ui-selected:text-brown-700 ui-active:font-semibold">
+                  {item}
+                </span>
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Transition>
       </div>
     </Listbox>
   );
 };
+
+const checkMark = (
+  <svg
+    className="fill-current"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M20.9111 5.90594L9.04874 19.4629L3.08582 13.5L4.50003 12.0858L8.95132 16.5371L19.406 4.58893L20.9111 5.90594Z" />
+  </svg>
+);
 
 const downArrow = (
   <svg

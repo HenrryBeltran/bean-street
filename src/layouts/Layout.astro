@@ -20,6 +20,14 @@ const {
 } = Astro.props as Props;
 ---
 
+<style is:global>
+  :root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+</style>
+
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/beanstreet/style.css" />

@@ -11,8 +11,8 @@ const FilterLinks: FC<Props> = ({ typeParam }) => {
         href={`/shop?type=${type.replaceAll("&", "and")}`}
         className={
           typeParam === type
-            ? "global-select-none group font-semibold text-brown-700"
-            : "global-select-none group transition-all duration-300 hover:font-semibold hover:text-brown-700"
+            ? "group font-semibold text-brown-700 tap-highlight-transparent"
+            : "group transition-all duration-300 tap-highlight-transparent hover:font-semibold hover:text-brown-700"
         }
       >
         <span className="capitalize">
@@ -55,7 +55,7 @@ const FilterLinks: FC<Props> = ({ typeParam }) => {
           <li>
             <a
               href="/shop"
-              className="global-select-none group flex items-center font-medium text-red-600/75 transition-all duration-300 hover:font-bold hover:text-red-700"
+              className="group flex items-center font-medium text-red-600/75 transition-all duration-300 tap-highlight-transparent hover:font-bold hover:text-red-700"
             >
               Clear filter{" "}
               <div className="relative ml-1 h-3 w-3 transition-transform duration-500 group-hover:rotate-180">

@@ -1,8 +1,8 @@
 import type { FC } from "react";
-import type { Section } from "../lib/sanity";
+import type { Coffee } from "../lib/sanity";
 
 interface Props {
-  coffee: Section;
+  coffee: Coffee;
 }
 
 const AddToCartButton: FC<Props> = ({ coffee }) => {
@@ -13,7 +13,7 @@ const AddToCartButton: FC<Props> = ({ coffee }) => {
   return (
     <button
       onClick={handleAddToCart}
-      className="global-select-none group relative w-full overflow-hidden border-b border-brown-700"
+      className="group relative w-full overflow-hidden border-b border-brown-700 tap-highlight-transparent"
     >
       <div className="flex h-10 items-center justify-between px-2">
         <span className="text-brown-600 transition-colors group-hover:text-beige-100 md:text-lg">

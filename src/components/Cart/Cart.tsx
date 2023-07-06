@@ -42,7 +42,7 @@ const Cart: FC<Props> = ({ isCartOpen, setIsCartOpen }) => {
                 </span>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="global-select-none group flex aspect-square h-12 translate-x-3 items-center justify-center"
+                  className="group flex aspect-square h-12 translate-x-3 items-center justify-center tap-highlight-transparent"
                   aria-label="Close Cart"
                 >
                   <svg width="22" height="22" viewBox="0 0 24 24">
@@ -86,7 +86,7 @@ const Cart: FC<Props> = ({ isCartOpen, setIsCartOpen }) => {
                   <span>$ 0</span>
                 </div>
                 <button
-                  className="global-select-none group relative flex w-full items-center justify-center overflow-hidden whitespace-nowrap bg-brown-700 py-3 text-lg font-medium text-beige-100 disabled:cursor-not-allowed disabled:bg-brown-500"
+                  className="group relative flex w-full items-center justify-center overflow-hidden whitespace-nowrap bg-brown-700 py-3 text-lg font-medium text-beige-100 tap-highlight-transparent disabled:cursor-not-allowed disabled:bg-brown-500"
                   aria-label="Checkout the cart"
                   disabled
                 >

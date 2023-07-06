@@ -20,7 +20,7 @@ const PrimaryButton: FC<Props> = ({
     <a
       href={path}
       className={twMerge(
-        "global-select-none group relative flex items-center overflow-hidden whitespace-nowrap border-2 border-brown-700 bg-brown-700 px-3 py-1 font-medium text-beige-100",
+        "group relative flex items-center overflow-hidden whitespace-nowrap border-2 border-brown-700 bg-brown-700 px-3 py-1 font-medium text-beige-100 tap-highlight-transparent",
         buttonClass
       )}
       aria-label={ariaLabel}
