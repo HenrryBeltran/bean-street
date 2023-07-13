@@ -1,12 +1,12 @@
 ---
-import type { Coffee } from "../../lib/sanity";
+import type { Item } from "../../lib/sanity";
 
 interface Props {
-  coffee: Coffee;
+  item: Item;
   url: string;
 }
 
-const { coffee, url }: Props = Astro.props;
+const { item, url }: Props = Astro.props;
 ---
 
 <nav>
@@ -21,9 +21,9 @@ const { coffee, url }: Props = Astro.props;
     </li>
     <li>
       <a
-        href={`/shop?type=${coffee.section.replaceAll("&", "and")}`}
+        href={`/shop/${item.section.slugTitle}`}
         class="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brown-800 after:transition-all after:content-[''] hover:text-brown-800 after:hover:w-full"
-        >{coffee.section.replaceAll("-", " ")}</a
+        >{item.section.title}</a
       >
       <span> &bullet;&nbsp;</span>
     </li>
@@ -31,7 +31,7 @@ const { coffee, url }: Props = Astro.props;
       <a
         href={url}
         class="relative font-medium text-brown-800 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brown-800 after:transition-all after:content-[''] hover:text-brown-800 after:hover:w-full"
-        >{coffee.name}</a
+        >{item.name}</a
       >
     </li>
   </ul>

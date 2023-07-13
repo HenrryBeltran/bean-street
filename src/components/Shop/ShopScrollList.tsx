@@ -1,42 +1,35 @@
 import { Fragment, type FC } from "react";
-import { isMenu, Menu, Sections } from "../../lib/sanity";
-import CoffeeCard from "../CoffeeCard";
+import ItemCard from "../ItemCard";
 import CardsContainer from "./CardsContainer";
+import type { Item, Section } from "../../lib/sanity";
 
 interface Props {
-  menuData: Menu | Sections;
-  getSectionsTitles: (array: Sections) => string;
+  menu: Item[];
+  sections: Section[];
+  currentSlugTitle: string;
 }
 
-const ShopScrollList: FC<Props> = ({ menuData, getSectionsTitles }) => {
-  const renderCofees = (data: Menu | Sections) => {
-    if (isMenu(data)) {
-      return (
-        <CardsContainer>
-          {Object.values(data).map((sections, index) => (
-            <Fragment key={index}>
-              <h2 className="col-span-2 mt-10 min-w-max text-3xl font-bold capitalize leading-none text-brown-700 first:mt-0 lg:col-span-3">
-                {getSectionsTitles(sections)}
-              </h2>
-              {sections.map(coffees => (
-                <CoffeeCard key={coffees._id} coffee={coffees} />
-              ))}
-            </Fragment>
-          ))}
-        </CardsContainer>
-      );
-    } else {
-      return (
-        <CardsContainer>
-          {data.map(coffees => (
-            <CoffeeCard key={coffees._id} coffee={coffees} />
-          ))}
-        </CardsContainer>
-      );
-    }
-  };
+const ShopScrollList: FC<Props> = ({ menu, sections, currentSlugTitle }) => {
+  const all = sections.map(section => (
+    <Fragment key={section._id}>
+      <h2 className="col-span-2 mt-10 min-w-max text-3xl font-bold capitalize leading-none text-brown-700 first:mt-0 lg:col-span-3">
+        {section.title}
+      </h2>
+      {menu
+        .filter(item => item.section.slugTitle === section.slugTitle)
+        .map(item => (
+          <ItemCard item={item} />
+        ))}
+    </Fragment>
+  ));
 
-  return <>{renderCofees(menuData)}</>;
+  const section = menu.map(item => <ItemCard item={item} />);
+
+  return (
+    <CardsContainer>
+      {currentSlugTitle === "all" ? all : section}
+    </CardsContainer>
+  );
 };
 
 export default ShopScrollList;

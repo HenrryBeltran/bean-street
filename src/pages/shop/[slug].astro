@@ -4,10 +4,26 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import ShopContainer from "../../components/Shop/ShopContainer";
 import Layout from "../../layouts/Layout.astro";
-import { getMenu, getMenuSections } from "../../lib/sanity";
+import { getMenuSections, getSection } from "../../lib/sanity";
 
-const menu = await getMenu();
-const sections = await getMenuSections();
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const sections = await getMenuSections();
+
+  return sections.map(section => {
+    return {
+      params: { slug: section.slugTitle },
+      props: { sections },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { sections } = Astro.props;
+
+const data = await getSection(slug || "hot-coffees");
+console.log(sections);
 ---
 
 <Layout
@@ -21,10 +37,10 @@ const sections = await getMenuSections();
   <main class="flex w-full justify-center">
     <ShopContainer
       client:load
-      menu={menu}
+      menu={data}
       sections={sections}
-      mainTitle="All"
-      currentSlugTitle="all"
+      mainTitle={data[0].section.title}
+      currentSlugTitle={data[0].section.slugTitle}
     />
   </main>
   <Footer />

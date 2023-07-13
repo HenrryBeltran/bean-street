@@ -7,84 +7,119 @@ export const client = createClient({
   apiVersion: "2021-10-21",
 });
 
-export const getMenu = async (): Promise<Menu> => {
+export const getMenu = async (): Promise<Item[]> => {
   return await client.fetch(`
-  {
-    'hotCoffees': *[section == 'hot-coffees'] | order(name),
-    'hotDrinks': *[section == 'hot-drinks'] | order(name),
-    'coldCoffees': *[section == 'cold-coffees'] | order(name),
-    'sandwichesAndMore': *[section == 'sandwiches-&-more'] | order(name),
-    'pastries': *[section == 'pastries'] | order(name)
-  }
-`);
+    *[_type == 'menu'] 
+    | order(name asc) 
+    | order(section -> priorityOrder asc) {
+      _id,
+      _type,
+      name,
+      tip,
+      description,
+      price,
+      'imageUrl': productImage.asset -> url,
+      'slugName': slugName.current,
+      isADrink,
+      section -> { title, 'slugTitle': slugTitle.current, priorityOrder },
+      'recipe': {
+        defaultCupSize -> { _id, _type, name, measure, chargePrice },
+        cupSizeList[] -> { _id, _type, name, measure, chargePrice },
+        defaultSweetener -> { _id, _type, title },
+        sweetenerList[] -> { _id, _type, title },
+        haveMilk,
+        defaultMilk -> { _id, _type, milkType, chargePrice },
+        milkList[] -> { _id, _type, milkType },
+        haveWarmedField,
+      }
+    }
+  `);
 };
 
-export const getHotCoffees = async (): Promise<Sections> => {
-  return await client.fetch("*[section == 'hot-coffees'] | order(name)");
+export const getSection = async (slugSection: string): Promise<Item[]> => {
+  return await client.fetch(`
+    *[_type == 'menu' && section -> slugTitle.current == '${slugSection}']
+    | order(name asc) {
+      _id,
+      _type,
+      name,
+      tip,
+      description,
+      price,
+      'imageUrl': productImage.asset -> url,
+      'slugName': slugName.current,
+      isADrink,
+      section -> { title, 'slugTitle': slugTitle.current, priorityOrder },
+      'recipe': {
+        defaultCupSize -> { _id, _type, name, measure, chargePrice },
+        cupSizeList[] -> { _id, _type, name, measure, chargePrice },
+        defaultSweetener -> { _id, _type, title },
+        sweetenerList[] -> { _id, _type, title },
+        haveMilk,
+        defaultMilk -> { _id, _type, milkType, chargePrice },
+        milkList[] -> { _id, _type, milkType },
+        haveWarmedField,
+      }
+    }
+  `);
 };
 
-export const getHotDrinks = async (): Promise<Sections> => {
-  return await client.fetch("*[section == 'hot-drinks'] | order(name)");
+export const getItemBySlugName = async (slugName: string): Promise<Item> => {
+  return await client.fetch(`
+    *[_type == 'menu' && slugName.current == '${slugName}'] {
+      _id,
+      name,
+      tip,
+      description,
+      price,
+      'imageUrl': productImage.asset -> url,
+      'slugName': slugName.current,
+      isADrink,
+      section -> { title, 'slugTitle': slugTitle.current, priorityOrder },
+      'recipe': {
+        defaultCupSize -> { _id, _type, name, measure, chargePrice },
+        cupSizeList[] -> { _id, _type, name, measure, chargePrice },
+        defaultSweetener -> { _id, _type, title },
+        sweetenerList[] -> { _id, _type, title },
+        haveMilk,
+        defaultMilk -> { _id, _type, milkType, chargePrice },
+        milkList[] -> { _id, _type, milkType },
+        haveWarmedField,
+      }
+    }
+  `);
 };
 
-export const getColdCoffees = async (): Promise<Sections> => {
-  return await client.fetch("*[section == 'cold-coffees'] | order(name)");
+export const getMenuSections = async (): Promise<Section[]> => {
+  return await client.fetch(`
+    *[_type == 'menuSections'] 
+      | order(priorityOrder asc) {
+        _id,
+        _type,
+        _createdAt,
+        title,
+        'slugTitle': slugTitle.current,
+        isADrink,
+    }
+  `);
 };
 
-export const getSandwichesMore = async (): Promise<Sections> => {
-  return await client.fetch("*[section == 'sandwiches-&-more'] | order(name)");
-};
-
-export const getPastries = async (): Promise<Sections> => {
-  return await client.fetch("*[section == 'pastries'] | order(name)");
-};
-
-export const getCoffeeById = async (id: string): Promise<Coffee> => {
-  return await client.fetch(`*[_id == ${id}]`);
-};
-
-export type Menu = {
-  hotCoffees: Sections;
-  hotDrinks: Sections;
-  coldCoffees: Sections;
-  sandwichesAndMore: Sections;
-  pastries: Sections;
-};
-
-export type Coffee = {
-  customizeTags: {
-    _key: string;
-    title: string;
-    value: string;
-    _type: string;
-  }[];
-  _rev: string;
-  description: string;
-  section: string;
-  _type: string;
-  name: string;
-  tip: string;
-  _id: string;
-  _updatedAt: string;
-  productImage: {
-    _type: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
-  price: number;
-  _createdAt: string;
-};
-
-export type Sections = Array<Coffee>;
-
-export function isMenu(menu: Menu | Sections): menu is Menu {
-  return (menu as Menu).hotCoffees !== undefined;
-}
-
-export const getSectionsTitles = (array: Sections): string => {
-  return array[0].section.replaceAll("-", " ");
+export const getAllOfferts = async (): Promise<Offert[]> => {
+  return await client.fetch(`
+    *[_type == 'offerts'] {
+      _id,
+      _type,
+      _createdAt,
+      title,
+      description,
+      linkName,
+      link,
+      discount,
+      applyToNewUsers,
+      applyToShipping,
+      applyToSections[] -> { _id, _type, title, 'slugTitle': slugTitle.current },
+    }
+  `);
 };
 
 export enum MenuSections {
@@ -95,3 +130,95 @@ export enum MenuSections {
   PASTRIES = "pastries",
   ALL = "none",
 }
+
+export type Item = {
+  _type: string;
+  name: string;
+  imageUrl: string;
+  slugName: string;
+  isADrink: boolean;
+  section: {
+    title: string;
+    slugTitle: string;
+    priorityOrder: number;
+  };
+  _id: string;
+  tip: string;
+  description: string;
+  price: number;
+  recipe: {
+    defaultCupSize: {
+      _type: string;
+      name: string;
+      measure: string;
+      chargePrice: number;
+      _id: string;
+    } | null;
+    cupSizeList:
+      | {
+          _id: string;
+          _type: string;
+          name: string;
+          measure: string;
+          chargePrice: number;
+        }[]
+      | null;
+    defaultSweetener: {
+      _id: string;
+      _type: string;
+      title: string;
+    } | null;
+    sweetenerList:
+      | {
+          _id: string;
+          _type: string;
+          title: string;
+        }[]
+      | null;
+    haveMilk: boolean;
+    defaultMilk: {
+      _id: string;
+      _type: string;
+      milkType: string;
+      chargePrice: number;
+    } | null;
+    milkList:
+      | {
+          _id: string;
+          _type: string;
+          milkType: string;
+        }[]
+      | null;
+    haveWarmedField: boolean | null;
+  };
+};
+
+export type Section = {
+  _id: string;
+  _type: string;
+  _createdAt: string;
+  title: string;
+  slugTitle: string;
+  isADrink: boolean;
+};
+
+export type Offert = {
+  _id: string;
+  title: string;
+  description: string;
+  linkName: string;
+  discount: number;
+  applyToSections:
+    | {
+        _id: string;
+        _type: string;
+        title: string;
+        slugTitle: string;
+      }[]
+    | null;
+  _type: string;
+  _createdAt: Date;
+  link: string;
+  applyToNewUsers: boolean;
+  applyToShipping: boolean;
+};

@@ -18,6 +18,13 @@ function HeroSection() {
             src="/assets/images/bean-street-hero-small.jpg"
             srcSet="/assets/images/hero/bean-street-hero-small.jpg 1x, /assets/images/hero/bean-street-hero-small-2x.jpg 2x"
             alt="Bean Street Coffee Shop"
+            style={{
+              background:
+                "url('/assets/images/hero/bean-street-hero-large-blurry.jpg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           />
         </picture>
         <div className="min-h-[calc(100lvh-320px-104px)] w-full flex-grow p-10 text-center sm:h-full sm:min-h-max sm:w-1/2 sm:px-14">
@@ -26,8 +33,8 @@ function HeroSection() {
               Welcome to Bean Street
             </h1>
             <p className="mb-9 leading-7 text-brown-700 sm:mb-10 sm:text-xl sm:leading-10 xl:mb-14 xl:text-2xl">
-              Our cozy and modern coffee shop is the perfect place to relax and enjoy a
-              cup of coffee with friends or alone.
+              Our cozy and modern coffee shop is the perfect place to relax and
+              enjoy a cup of coffee with friends or alone.
             </p>
             <PrimaryButton
               path="/shop"

@@ -1,55 +1,36 @@
 ---
-import type { Coffee } from "../../lib/sanity";
+import type { Item } from "../../lib/sanity";
 import CustomizeOrder from "./CustomizeOrder";
 
 interface Props {
-  coffee: Coffee;
+  item: Item;
 }
 
-const { coffee }: Props = Astro.props;
+const { item }: Props = Astro.props;
 ---
 
 <>
   <div class="my-10">
     <picture>
       <source
-        srcset={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=540&dpr=1 1x,
-        https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=540&dpr=2 2x`}
+        srcset={`${item.imageUrl}?h=540&dpr=1 1x, ${item.imageUrl}?h=540&dpr=2 2x`}
         media="(min-width:1280px)"
       />
       <source
-        srcset={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=420&dpr=1 1x,
-        https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=420&dpr=2 2x`}
+        srcset={`${item.imageUrl}?h=420&dpr=1 1x, ${item.imageUrl}?h=420&dpr=2 2x`}
         media="(min-width:720px)"
       />
       <source
-        srcset={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=390&dpr=1 1x,
-        https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=390&dpr=2 2x`}
+        srcset={`${item.imageUrl}?h=390&dpr=1 1x, ${item.imageUrl}?h=390&dpr=2 2x`}
       />
       <img
         width={390}
         height={487.5}
         class="aspect-[4/5] w-full"
-        src={`https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-          .replace("image-", "")
-          .replace("-jpg", ".jpg")}?h=390&dpr=1`}
-        alt={coffee.name}
+        src={`${item.imageUrl}?h=390&dpr=1`}
+        alt={item.name}
         style={{
-          background: `url('https://cdn.sanity.io/images/ydwwqgnu/production/${coffee.productImage.asset._ref
-            .replace("image-", "")
-            .replace("-jpg", ".jpg")}?h=32&blur=200')`,
+          background: `url('${item.imageUrl}?h=32&blur=200')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -59,9 +40,9 @@ const { coffee }: Props = Astro.props;
   </div>
   <div>
     <h1 class="mb-4 font-serif text-5xl font-black text-brown-800">
-      {coffee.name}
+      {item.name}
     </h1>
-    <p class="mb-10 text-brown-500">{coffee.description}</p>
-    <CustomizeOrder client:load coffee={coffee} />
+    <p class="mb-10 text-brown-500">{item.description}</p>
+    <CustomizeOrder client:load item={item} />
   </div>
 </>

@@ -1,12 +1,12 @@
 import { useEffect, useState, type FC } from "react";
-import { MenuSections, type Coffee } from "../../lib/sanity";
+import { MenuSections, type Item } from "../../lib/sanity";
 import ListBoxForm from "./ListBoxForm";
 import QuantitySelector from "./QuantitySelector";
 import RadioButtonSizeCup from "./RadioButtonSizeCup";
 
-const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
+const CustomizeOrder: FC<{ item: Item }> = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
-  const [singlePrice, setSinglePrice] = useState(coffee.price);
+  const [singlePrice, setSinglePrice] = useState(item.price);
   const [totalPrice, setTotalPrice] = useState(singlePrice);
   const [selectedSweetner, setSelectedSweetener] = useState("");
   const [selectedMilk, setSelectedMilk] = useState("");
@@ -14,9 +14,9 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
   const [adjustOrder, setAdjustOrder] = useState("");
 
   useEffect(() => {
-    if (isADrink(coffee.section)) {
-      setSelectedSweetener(coffee.customizeTags[0].value);
-      setSelectedMilk(coffee.customizeTags[1].value);
+    if (item.isADrink) {
+      setSelectedSweetener(item.recipe.defaultSweetener?.title || "unknown");
+      setSelectedMilk(item.recipe.defaultMilk?.milkType || "unknown");
     }
   }, []);
 
@@ -25,11 +25,11 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
   }, [singlePrice, quantity]);
 
   useEffect(() => {
-    if (isADrink(coffee.section)) {
+    if (item.isADrink) {
       if (cupSize === "large") {
         setSinglePrice(prevPrice => prevPrice + 0.5);
       } else {
-        setSinglePrice(coffee.price);
+        setSinglePrice(item.price);
       }
     }
   }, [cupSize]);
@@ -75,7 +75,7 @@ const CustomizeOrder: FC<{ coffee: Coffee }> = ({ coffee }) => {
     </ul>
   );
 
-  if (!isADrink(coffee.section)) {
+  if (!item.isADrink) {
     order = (
       <ul className="space-y-8">
         <li className="space-y-4">

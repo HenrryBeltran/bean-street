@@ -21,7 +21,7 @@ const ListBoxForm: FC<Props> = ({ state, setState, array, isMilk = false }) => {
         <Listbox.Button className="group flex h-12 w-full items-center justify-between border-b border-b-brown-700 px-6 tap-highlight-transparent ui-open:bg-beige-200/70">
           <span className="font-medium capitalize text-brown-700">{state}</span>
           <span className="inline-block text-brown-700 transition-transform duration-200 ui-open:rotate-180">
-            {downArrow}
+            {chevronDownIcon}
           </span>
         </Listbox.Button>
         <Transition
@@ -41,7 +41,7 @@ const ListBoxForm: FC<Props> = ({ state, setState, array, isMilk = false }) => {
                 className="flex cursor-pointer gap-x-3 py-3 pl-4 pr-6 capitalize"
               >
                 <span className="text-transparent ui-selected:text-brown-700">
-                  {checkMark}
+                  {checkMarkIcon}
                 </span>
                 <span className="font-light text-brown-600 ui-selected:font-semibold ui-selected:text-brown-700 ui-active:font-semibold">
                   {item}
@@ -55,7 +55,7 @@ const ListBoxForm: FC<Props> = ({ state, setState, array, isMilk = false }) => {
   );
 };
 
-const checkMark = (
+const checkMarkIcon = (
   <svg
     className="fill-current"
     width="24"
@@ -67,7 +67,7 @@ const checkMark = (
   </svg>
 );
 
-const downArrow = (
+const chevronDownIcon = (
   <svg
     className="fill-current"
     width="16"

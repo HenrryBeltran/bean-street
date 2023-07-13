@@ -1,32 +1,35 @@
 import type { FC } from "react";
+import type { Section } from "../../lib/sanity";
 
 interface Props {
-  typeParam: string;
+  sections: Section[];
+  mainTitle: string;
+  currentSlugTitle: string;
 }
 
-const FilterLinks: FC<Props> = ({ typeParam }) => {
-  const typeLink = (type: string) => {
+const FilterLinks: FC<Props> = ({ sections, mainTitle, currentSlugTitle }) => {
+  const typeLink = (title: string, slug: string) => {
     return (
       <a
-        href={`/shop?type=${type.replaceAll("&", "and")}`}
+        href={`/shop/${slug}`}
         className={
-          typeParam === type
+          currentSlugTitle === slug
             ? "group font-semibold text-brown-700 tap-highlight-transparent"
             : "group transition-all duration-300 tap-highlight-transparent hover:font-semibold hover:text-brown-700"
         }
       >
         <span className="capitalize">
-          {type.replaceAll("-", " ")}
-          {bullet(type)}
+          {title}
+          {bullet(slug)}
         </span>
       </a>
     );
   };
 
-  const bullet = (type: string) => (
+  const bullet = (slug: string) => (
     <span
       className={
-        typeParam === type
+        currentSlugTitle === slug
           ? "ml-1 inline-block scale-125"
           : "ml-1 inline-block scale-0 transition-transform duration-300 group-hover:scale-125"
       }
@@ -41,17 +44,22 @@ const FilterLinks: FC<Props> = ({ typeParam }) => {
         <li>
           <h3 className="font-bold text-brown-800">Drinks</h3>
         </li>
-        <li>{typeLink("hot-coffees")}</li>
-        <li>{typeLink("hot-drinks")}</li>
-        <li>{typeLink("cold-coffees")}</li>
+        {sections
+          .filter(section => section.isADrink)
+          .map(section => (
+            <li>{typeLink(section.title, section.slugTitle)}</li>
+          ))}
       </ul>
       <ul className="basis-1/2 space-y-2 sm:basis-0">
         <li>
           <h3 className="font-bold text-brown-800">Food</h3>
         </li>
-        <li>{typeLink("sandwiches-&-more")}</li>
-        <li>{typeLink("pastries")}</li>
-        {typeParam !== "none" && (
+        {sections
+          .filter(section => !section.isADrink)
+          .map(section => (
+            <li>{typeLink(section.title, section.slugTitle)}</li>
+          ))}
+        {currentSlugTitle !== "all" && (
           <li>
             <a
               href="/shop"
